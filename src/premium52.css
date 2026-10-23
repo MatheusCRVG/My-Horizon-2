@@ -1,0 +1,49 @@
+/* My Horizon+ 5.2: coherent premium presentation across the application */
+.workspace-shell{--line:#e6edf7;--muted:#63758d;background:linear-gradient(160deg,#f8fbff,#f4f8fd)}
+.workspace-shell .panel,.workspace-shell .stat,.workspace-shell .horizon-card,.workspace-shell .record-card{border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 32px rgba(24,59,102,.045)}
+.workspace-shell .btn,.workspace-shell input,.workspace-shell select,.workspace-shell textarea{border-radius:14px}
+.workspace-shell .btn{min-height:44px}
+.workspace-shell .page-heading h1{letter-spacing:-.035em}
+.workspace-shell .page-heading p{line-height:1.55}
+.workspace-shell button:focus-visible,.workspace-shell a:focus-visible{outline:3px solid #428fff;outline-offset:2px}
+.home52-premium{display:grid;gap:18px}
+.home52-hero{padding:26px;border-radius:28px;border:1px solid #e5effc;min-height:178px;background:radial-gradient(circle at 86% 70%,#e0eeff 0 20%,transparent 20.5%),linear-gradient(145deg,#fff,#edf6ff)}
+.home52-hero h2{font-size:clamp(29px,4.6vw,45px);line-height:1.16;letter-spacing:-.045em;max-width:580px}
+.home52-hero h2 span{font-weight:400;color:#62758f}
+.home52-balance{background:linear-gradient(145deg,#eaf5ff,#fff)!important;border-color:#dbeafd!important}
+.home52-balance-label{display:flex;align-items:center;gap:10px}
+.home52-balance-label span{color:#5a708c;font-size:15px}
+.home52-balance-label button{display:grid;place-items:center;width:44px;height:44px;color:#4c6989;background:#fff9;border:0;border-radius:50%}
+.home52-balance>strong{font-size:clamp(29px,5vw,44px)!important;word-break:break-word}
+.home52-goal{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:20px;background:linear-gradient(120deg,#fff,#f0f7ff);border:1px solid #deebfa;border-radius:24px;color:var(--text);min-height:104px}
+.home52-goal-icon{display:grid;place-items:center;width:46px;height:46px;flex-shrink:0;border-radius:15px;background:#e8f1ff;color:#167cf0}
+.home52-goal-content{display:grid;gap:6px;flex:1;min-width:0}
+.home52-goal-content strong{font-size:17px}
+.home52-goal-content small{font-size:12px;color:var(--muted)}
+.home52-goal-progress{height:8px;width:100%;border-radius:8px;background:#e5eefa;overflow:hidden}
+.home52-goal-progress span{display:block;height:100%;background:#278aff;border-radius:8px}
+.home52-more{border-radius:22px}
+.home52-more>summary{display:flex;align-items:center;min-height:50px;color:#247bd7;font-weight:650;cursor:pointer;padding:12px 4px}
+.home52-more[open]>summary{margin-bottom:12px}
+[data-theme=dark] .home52-hero{background:linear-gradient(135deg,#1e344a,#162638);border-color:#2b4562}
+[data-theme=dark] .home52-balance,[data-theme=dark] .home52-goal{background:linear-gradient(135deg,#1b344e,#172738)!important;border-color:#2c486a!important}
+[data-theme=dark] .home52-hero h2 span{color:#bdcbe0}
+@media(max-width:720px){
+  .workspace-shell .page-heading{margin-bottom:16px}
+  .workspace-shell .page-heading .eyebrow,.workspace-shell .page-heading p{display:none}
+  .workspace-shell main{padding-bottom:calc(140px + env(safe-area-inset-bottom,0px))}
+  .workspace-shell .panel,.workspace-shell .stat{border-radius:20px}
+  .workspace-shell .global-filters{gap:8px}
+  .workspace-shell .global-filters select,.workspace-shell .global-filters input{font-size:16px;min-height:44px}
+  .workspace-shell .workspace-context select{font-size:16px}
+  .home52-premium{gap:14px}
+  .home52-hero{padding:22px;min-height:152px}
+  .home52-hero h2{font-size:30px}
+  .home52-goal{padding:15px}
+  .home52-more .home-month-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home52-premium .home-questions{margin:0}
+  .home52-premium .home-questions article{border-radius:22px}
+  .home52-premium .home-actions{margin:4px 0}
+  .home52-premium .home-actions>button{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.home52-premium *{transition:none!important;animation:none!important}}
