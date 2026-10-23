@@ -7,7 +7,7 @@ import { createOperations } from "../sync";
 import { currentSession, remoteVault, rememberSession } from "./client";
 
 /** Explicit linking preserves the cryptographic owner, vault ID and all entity identifiers. */
-export async function linkVault(keys: VaultKeys, doc: Document) {
+export async function linkVault(keys: VaultKeys, _doc: Document) {
   const session = currentSession();
   if (!session) throw Error("Entre na conta antes de conectar o cofre.");
   const remote = await remoteVault();
