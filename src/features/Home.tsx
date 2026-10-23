@@ -1,10 +1,14 @@
-import type { ReactNode } from "react";
+function greetingForHour(hour: number): string { return hour < 12 ? "Bom dia." : hour < 18 ? "Boa tarde." : "Boa noite."; }
+import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
   Plus,
   Sparkles,
   CalendarDays,
+  Eye,
+  EyeOff,
+  Target,
 } from "lucide-react";
 import { useFinance } from "../core/store";
 import { money, rows, today, dateLabel } from "../core/model";
@@ -38,6 +42,14 @@ export function Dashboard({
   add: (type?: "income" | "expense") => void;
   pulseBaseline: PulseSnapshot | null;
 }) {
+  const [hiddenValues, setHiddenValues] = useState(false);
+  const [greeting, setGreeting] = useState(() => greetingForHour(new Date().getHours()));
+  useEffect(() => {
+    const update = () => setGreeting(greetingForHour(new Date().getHours()));
+    const timer = window.setInterval(update, 60_000);
+    document.addEventListener("visibilitychange", update);
+    return () => { window.clearInterval(timer); document.removeEventListener("visibilitychange", update); };
+  }, []);
   const { doc } = useFinance(),
     t = totals(doc!, month),
     series = monthlySeries(doc!, month, account, category);
@@ -198,21 +210,13 @@ export function Dashboard({
       </div>
     ),
   };
+  const mainGoal = objectives(doc!).find(g => !g.data.archived);
+  const mainProgress = mainGoal ? savingSummary(doc!, mainGoal) : null;
   return (
-    <div className="home-workspace">
-      <section className="home-intro">
-        <div>
-          <span className="eyebrow">SEU DINHEIRO. SEUS SONHOS.</span>
-          <h2>
-            {new Date().getHours() < 12
-              ? "Bom dia."
-              : new Date().getHours() < 18
-                ? "Boa tarde."
-                : "Boa noite."}{" "}
-            <span>Seu próximo horizonte começa aqui.</span>
-          </h2>
-        </div>
-        <DashboardCustomizer />
+    <div className="home-workspace home52-premium">
+      <section className="home52-hero">
+        <span className="eyebrow">SEU DINHEIRO. SEUS SONHOS.</span>
+        <h2>{greeting} <span>Seu próximo horizonte começa aqui.</span></h2>
       </section>
       {!rows(doc!, "account").length && (
         <section className="start-hint">
@@ -232,9 +236,9 @@ export function Dashboard({
         className="home-questions"
         aria-label="Seu dinheiro em três perguntas"
       >
-        <article className="home-money">
-          <span>Quanto dinheiro eu tenho?</span>
-          <strong>{money(t.balance)}</strong>
+        <article className="home-money home52-balance">
+          <div className="home52-balance-label"><span>Meu patrimônio</span><button type="button" aria-label={hiddenValues ? "Mostrar valores do patrimônio" : "Ocultar valores do patrimônio"} aria-pressed={hiddenValues} onClick={() => setHiddenValues(v => !v)}>{hiddenValues ? <EyeOff size={20}/> : <Eye size={20}/>}</button></div>
+          <strong>{hiddenValues ? "R$ ••••••" : money(t.balance)}</strong>
           <p>Nas contas cadastradas, com movimentos confirmados até hoje.</p>
           <button className="text-btn" onClick={() => navigate("account")}>
             Ver minhas contas <ArrowUpRight size={15} />
@@ -243,7 +247,7 @@ export function Dashboard({
         <article>
           <span>Quanto posso guardar?</span>
           <strong className={t.saving < 0 ? "negative" : ""}>
-            {money(capacity.prudent)}
+            {hiddenValues ? "R$ ••••••" : money(capacity.prudent)}
           </strong>
           <p>
             Estimativa para o mês atual, limitada pela sobra, pelo dinheiro
@@ -254,7 +258,7 @@ export function Dashboard({
           </button>
         </article>
         <article>
-          <span>Qual é meu próximo horizonte?</span>
+          <span>Próximo horizonte</span>
           <strong className="home-next-date">
             {next ? dateLabel(next.completion!) : "No seu ritmo"}
           </strong>
@@ -268,6 +272,12 @@ export function Dashboard({
           </button>
         </article>
       </section>
+      <button type="button" className="home52-goal" onClick={() => navigate("goal")}>
+        <span className="home52-goal-icon"><Target size={23}/></span>
+        <span className="home52-goal-content"><strong>Seus horizontes</strong><small>{mainGoal ? mainGoal.data.name : "Seu próximo objetivo começa aqui"}</small><span className="home52-goal-progress"><span style={{width: mainProgress ? `${Math.max(0, Math.min(100, Math.round(mainProgress.progress)))}%` : "0%"}}/></span></span>
+        <ArrowRight size={20}/>
+      </button>
+      <details className="home52-more"><summary>Explorar meus dados financeiros</summary>
       <div className="home-month-stats">
         <Stat
           label="Receitas do mês"
@@ -317,6 +327,7 @@ export function Dashboard({
           </div>
         ))}
       </div>
+      </details>
       <p className="footnote">
         Os valores refletem somente os dados cadastrados. Projeções são
         estimativas e não alteram seus saldos.
