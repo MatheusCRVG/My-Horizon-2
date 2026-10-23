@@ -47,3 +47,14 @@
   .home52-premium .home-actions>button{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){.home52-premium *{transition:none!important;animation:none!important}}
+
+/* Simplified welcome screen */
+.premium52-auth-choices{display:grid;gap:12px;margin:25px 0}
+.premium52-auth-choices button{display:flex;align-items:center;justify-content:space-between;min-height:58px;width:100%;border-radius:16px;border:1px solid #dce8f5;padding:14px 18px;font-size:16px;font-weight:650;cursor:pointer}
+.premium52-auth-primary{background:#087dfa;color:#fff;border-color:#087dfa!important}
+.premium52-auth-secondary{background:#f8fbff;color:#102b4b}
+.premium52-auth-demo{color:#2475bc;background:transparent!important;border:0!important;font-size:14px!important;justify-content:center!important;gap:10px}
+.premium52-auth-back{min-height:44px}
+.premium52-secondary-onboarding{display:none}
+.auth-refined .auth-form:has(.premium52-auth-choices)>p{margin-bottom:16px}
+@media(max-width:720px){.auth-refined .auth-form:has(.premium52-auth-choices){padding:0 10px}.auth-refined .auth-form:has(.premium52-auth-choices) h2{font-size:clamp(32px,8vw,48px)}}
