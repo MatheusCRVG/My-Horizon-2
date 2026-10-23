@@ -3,7 +3,6 @@ import { Plus, Trash2, CalendarDays, ArrowRight } from "lucide-react";
 import { Modal } from "../components/ui";
 import { useFinance } from "../core/store";
 import {
-  addMonths,
   dateLabel,
   money,
   today,
