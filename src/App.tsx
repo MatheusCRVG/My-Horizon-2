@@ -606,6 +606,7 @@ export function App() {
                 navigate={navigate}
                 add={beginTransaction}
                 pulseBaseline={pulseBaseline}
+                setMonth={setMonth}
               />
             ) : page === "transactions" || page === "recurring" ? (
               <Transactions
