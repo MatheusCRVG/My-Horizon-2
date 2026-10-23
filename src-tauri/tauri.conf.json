@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "My Horizon+",
-  "version": "5.1.0",
-  "identifier": "app.myhorizon.plus",
+  "productName": "My Horizon+ Preview",
+  "version": "5.2.0",
+  "identifier": "app.myhorizon.plus.preview",
   "mainBinaryName": "my-horizon",
   "build": {
     "beforeDevCommand": "npm run dev -- --host localhost --port 5173 --strictPort",
@@ -15,7 +15,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "My Horizon+",
+        "title": "My Horizon+ Preview",
         "create": false,
         "width": 1280,
         "height": 840,
