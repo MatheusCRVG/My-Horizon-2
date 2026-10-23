@@ -354,6 +354,8 @@ export function IndependentAuth() {
   useEffect(() => {
     if (auth.currentSession() && !auth.passwordRecovery() && !selected)
       void prepareAccount();
+    // Only auth events should restart account discovery; resetting selection must not.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionTick]);
   const session = auth.currentSession();
   const reset = () => {
