@@ -5,7 +5,7 @@ test("My Horizon+ Preview 5.2: dock e ações funcionam no celular", async ({ pa
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
-  await page.getByRole("button", { name: "Explorar com dados fictícios" }).click();
+  await page.getByRole("button", { name: /Explorar demonstração|Explorar com dados fictícios/ }).click();
   await expect(page.locator("main.page-overview")).toBeVisible();
 
   const dock = page.getByRole("navigation", { name: "Navegação principal" });
@@ -47,7 +47,7 @@ test("Dock da versão 5.2 em 360px respeita área clicável", async ({ page }, t
   test.skip(testInfo.project.name !== "mobile", "Validação específica de mobile");
   await page.setViewportSize({ width: 360, height: 780 });
   await page.goto("/");
-  await page.getByRole("button", { name: "Explorar com dados fictícios" }).click();
+  await page.getByRole("button", { name: /Explorar demonstração|Explorar com dados fictícios/ }).click();
   const dock = page.getByRole("navigation", { name: "Navegação principal" });
   await expect(dock).toBeVisible();
   for (const button of await dock.getByRole("button").all()) {
