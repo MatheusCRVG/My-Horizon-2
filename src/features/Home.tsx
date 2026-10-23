@@ -248,7 +248,6 @@ export function Dashboard({
           <span className="home52-goal-arrow"><ArrowRight size={21}/></span>
         </button>
       </section>
-      <button type="button" className="home52-new" onClick={()=>add("expense")} aria-label="Novo lançamento"><Plus size={26}/> Novo</button>
       <details className="home52-more"><summary>Explorar meus dados financeiros</summary>
       <div className="home-month-stats">
         <Stat
