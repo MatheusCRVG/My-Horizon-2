@@ -474,6 +474,8 @@ test("a remote vault appearing during import selection cannot replace either enc
     async ({ envelope, authUrl }) => {
       const auth = await import(authUrl);
       const { iv: _iv, cipher: _cipher, ...header } = envelope;
+      void _iv;
+      void _cipher;
       const response = await auth.client().rpc("horizon_exchange", {
         p_vault_id: envelope.vaultId,
         p_header: header,
@@ -536,6 +538,8 @@ test("remote bootstrap preserves an unlinked legacy local document when exchange
       };
       const payload = await encryptDocument(remoteDoc, keys),
         { iv: _iv, cipher: _cipher, ...header } = envelope;
+      void _iv;
+      void _cipher;
       const response = await auth.client().rpc("horizon_exchange", {
         p_vault_id: envelope.vaultId,
         p_header: header,
