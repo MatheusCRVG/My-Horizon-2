@@ -792,6 +792,7 @@ export function IndependentAuth() {
                   Conectar servidor do My Horizon+
                 </button>
               </details>
+              </div>
             </>
           )}
           {error && (
