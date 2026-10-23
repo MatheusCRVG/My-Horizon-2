@@ -6,7 +6,6 @@ import {
   Cloud,
   Download,
   Upload,
-  RefreshCw,
   KeyRound,
   ExternalLink,
   AlertTriangle,
