@@ -133,3 +133,44 @@
  .workspace-shell:has(.page-overview) .demo-banner{font-size:11px;padding:6px 15px;min-height:40px}
  .workspace-shell:has(.page-overview) .demo-banner button{font-size:11px}
 }
+
+/* 5.2.1 visual system: consistent premium styling in every navigation area */
+.workspace-shell{--mh-paper:#f8fbff;--mh-stroke:#e3ecf7;--mh-depth:0 10px 32px rgba(21,54,96,.055);background:linear-gradient(180deg,#fafcff,#f4f8fe)}
+.workspace-shell main:not(.page-overview){max-width:1300px;width:100%;margin-inline:auto}
+.workspace-shell main:not(.page-overview)>.page-heading{overflow:hidden;position:relative;isolation:isolate;border:1px solid var(--mh-stroke);border-radius:26px;padding:22px 24px;background:linear-gradient(115deg,rgba(255,255,255,.96) 0%,rgba(247,252,255,.94) 100%);box-shadow:var(--mh-depth)}
+.workspace-shell main:not(.page-overview)>.page-heading:after{content:"";position:absolute;pointer-events:none;inset:auto -10px -30px auto;width:220px;height:125px;background:url("/brand/horizon-landscape.svg") center 41%/cover no-repeat;opacity:.13;z-index:-1}
+.workspace-shell main:not(.page-overview)>.page-heading h1{font-size:clamp(24px,3vw,36px);letter-spacing:-.045em}
+.workspace-shell main:not(.page-overview) .panel,.workspace-shell main:not(.page-overview) .stat,.workspace-shell main:not(.page-overview) .workspace-context,.workspace-shell main:not(.page-overview) .global-filters{border-radius:22px;border:1px solid var(--mh-stroke);box-shadow:var(--mh-depth);background:var(--panel)}
+.workspace-shell main:not(.page-overview) .panel-title{gap:14px}
+.workspace-shell main:not(.page-overview) h3{letter-spacing:-.03em}
+.workspace-shell main:not(.page-overview) .btn{border-radius:14px;min-height:44px}
+.workspace-shell main:not(.page-overview) input,.workspace-shell main:not(.page-overview) select,.workspace-shell main:not(.page-overview) textarea{border-radius:13px;min-height:44px}
+.workspace-shell main:not(.page-overview) input:focus-visible,.workspace-shell main:not(.page-overview) select:focus-visible{outline:2px solid #2588f7;outline-offset:1px}
+.workspace-shell main:not(.page-overview) .tile-icon{background:#e8f4ff;border-radius:14px}
+.workspace-shell main:not(.page-overview) .panel p,.workspace-shell main:not(.page-overview) .muted{line-height:1.55}
+.workspace-shell main:not(.page-overview) .workspace-context{margin-bottom:18px}
+.workspace-shell main:not(.page-overview) .global-filters{margin-bottom:18px}
+.home52-hero{background:linear-gradient(90deg,rgba(248,252,255,.88) 0%,rgba(248,252,255,.55) 47%,rgba(248,252,255,.06) 82%),url("/brand/horizon-landscape.svg") center 38%/cover no-repeat!important}
+.home52-goal{isolation:isolate;overflow:hidden!important;contain:paint}
+.home52-goal-content{position:relative;z-index:2;max-width:58%;overflow:hidden}
+.home52-goal-progress{overflow:hidden!important;max-width:100%;width:100%;border-radius:999px;isolation:isolate}
+.home52-goal-progress>span{display:block;max-width:100%;border-radius:inherit;overflow:hidden}
+.home52-goal-art{inset:0 0 0 60%;overflow:hidden;clip-path:inset(0);background-image:url("/brand/horizon-landscape.svg");background-position:center 36%;background-size:cover}
+.home52-goal-arrow{z-index:3}
+.home52-new{display:none!important}
+@media(max-width:720px){
+.workspace-shell main:not(.page-overview){padding-bottom:calc(155px + env(safe-area-inset-bottom,0px))}
+.workspace-shell main:not(.page-overview)>.page-heading{padding:18px;border-radius:22px}
+.workspace-shell main:not(.page-overview)>.page-heading h1{font-size:25px}
+.workspace-shell main:not(.page-overview)>.page-heading:after{width:160px;height:100px;opacity:.10}
+.workspace-shell main:not(.page-overview) .panel{padding:18px;border-radius:20px}
+.workspace-shell main:not(.page-overview) .global-filters{padding:13px}
+.workspace-shell main:not(.page-overview) .workspace-context{padding:11px}
+.home52-hero{background:linear-gradient(90deg,rgba(248,252,255,.90),rgba(248,252,255,.38) 56%,transparent 100%),url("/brand/horizon-landscape.svg") center 37%/auto 100% no-repeat!important}
+.home52-goal-content{max-width:58%}
+.home52-goal-art{inset:0 0 0 60%;background-position:58% 33%;background-size:auto 108%}
+.home52-goal-progress{height:8px;max-width:100%}
+.mobile52-quick-trigger{bottom:calc(103px + env(safe-area-inset-bottom,0px));right:max(18px,calc((100vw - 455px)/2));z-index:101;min-height:52px;border-radius:24px;padding:0 18px}
+}
+[data-theme=dark] .workspace-shell main:not(.page-overview)>.page-heading{background:var(--panel);border-color:var(--line)}
+[data-theme=dark] .workspace-shell main:not(.page-overview) .panel,[data-theme=dark] .workspace-shell main:not(.page-overview) .workspace-context{border-color:var(--line)}
