@@ -274,7 +274,7 @@ export function Dashboard({
       </section>
       <button type="button" className="home52-goal" onClick={() => navigate("goal")}>
         <span className="home52-goal-icon"><Target size={23}/></span>
-        <span className="home52-goal-content"><strong>Seus horizontes</strong><small>{mainGoal ? mainGoal.data.name : "Seu próximo objetivo começa aqui"}</small><span className="home52-goal-progress"><span style={{width: mainProgress ? `${Math.max(0, Math.min(100, Math.round(mainProgress.progress)))}%` : "0%"}}/></span></span>
+        <span className="home52-goal-content"><strong>Seus horizontes</strong><small>{mainGoal ? mainGoal.data.name : "Seu próximo objetivo começa aqui"}</small><span className="home52-goal-progress"><span style={{width: mainProgress ? `${Math.max(0, Math.min(100, Math.round(mainProgress.target > 0 ? mainProgress.saved / mainProgress.target * 100 : 0)))}%` : "0%"}}/></span></span>
         <ArrowRight size={20}/>
       </button>
       <details className="home52-more"><summary>Explorar meus dados financeiros</summary>
