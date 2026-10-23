@@ -77,10 +77,14 @@ export function ServerSetup({ close }: { close: () => void }) {
 
 export function AccountAccess({
   onAuthenticated,
+  landing = false,
+  onDemo,
 }: {
   onAuthenticated: () => void | Promise<void>;
+  landing?: boolean;
+  onDemo?: () => void;
 }) {
-  const [mode, setMode] = useState<"login" | "signup" | "forgot">("login");
+  const [mode, setMode] = useState<"login" | "signup" | "forgot" | "choose">(landing ? "choose" : "login");
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [notice, setNotice] = useState("");
@@ -99,6 +103,14 @@ export function AccountAccess({
   }
   return (
     <div className="account-access">
+      {mode === "choose" ? (
+        <div className="premium52-auth-choices">
+          <button type="button" className="premium52-auth-primary" onClick={() => setMode("login")}>Entrar <ArrowRight size={18}/></button>
+          <button type="button" className="premium52-auth-secondary" onClick={() => setMode("signup")}>Criar conta <ArrowRight size={18}/></button>
+          {onDemo && <button type="button" className="premium52-auth-demo" onClick={onDemo}>Explorar demonstração <ArrowRight size={16}/></button>}
+        </div>
+      ) : (<>
+      {landing && <button type="button" className="text-btn premium52-auth-back" onClick={() => setMode("choose")}>Voltar</button>}
       <div
         className="auth-account-tabs"
         role="group"
@@ -269,6 +281,7 @@ export function AccountAccess({
           {notice}
         </p>
       )}
+      </>)}
     </div>
   );
 }
@@ -709,7 +722,7 @@ export function IndependentAuth() {
             </>
           ) : (
             <>
-              <AccountAccess onAuthenticated={prepareAccount} />
+              <AccountAccess onAuthenticated={prepareAccount} landing onDemo={() => store.demoStart()} />
               {busy && (
                 <p className="auth-inline-notice" role="status">
                   <LoaderCircle className="spin" size={17} />
@@ -752,6 +765,7 @@ export function IndependentAuth() {
                 <Monitor size={18} />
                 Usar somente neste dispositivo
               </button>
+              <div className="premium52-secondary-onboarding">
               <div className="auth-demo-separator">
                 <span>ou conheça antes de entrar</span>
               </div>
