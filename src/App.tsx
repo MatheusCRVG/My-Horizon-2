@@ -352,7 +352,7 @@ export function App() {
               <Menu size={22} />
             </button>
             <span className="mobile52-topbar-logo" aria-hidden="true">
-              <img src={BRAND.symbol} alt="" />
+              <img src={page === "overview" ? BRAND.logo : BRAND.symbol} alt="" />
             </span>
             <span>Meu espaço</span>
             <span className="slash">/</span>
