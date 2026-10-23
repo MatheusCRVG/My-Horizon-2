@@ -7,6 +7,7 @@ import "./readability.css";
 import "./savings.css";
 import "./my-horizon.css";
 import "./workspace.css";
+import "./mobile52.css";
 import "./horizon-planning.css";
 import "./cover-refinement.css";
 import { BRAND } from "./core/brand";
