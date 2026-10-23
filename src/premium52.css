@@ -119,3 +119,17 @@
 }
 [data-theme=dark] .home52-wealth,[data-theme=dark] .home52-mini,[data-theme=dark] .home52-goal{background:#182b42;color:#eef5ff;border-color:#2b4564}
 [data-theme=dark] .home52-wealth-amount,[data-theme=dark] .home52-wealth-title,[data-theme=dark] .home52-mini strong,[data-theme=dark] .home52-goal-content strong{color:#f6f9ff}
+
+/* Home topbar is branding-led, not a secondary page title */
+@media(max-width:720px){
+ .workspace-shell:has(.page-overview) .topbar{background:linear-gradient(180deg,#f8fcff,#f8fcfff5);border:0;box-shadow:none;min-height:86px;padding:12px 20px}
+ .workspace-shell:has(.page-overview) .topbar .breadcrumb{flex:1;min-width:0}
+ .workspace-shell:has(.page-overview) .topbar .breadcrumb>span:not(.mobile52-topbar-logo),.workspace-shell:has(.page-overview) .topbar .breadcrumb>strong{display:none}
+ .workspace-shell:has(.page-overview) .mobile52-topbar-logo{display:block;width:148px;height:65px;background:none;border-radius:0;overflow:visible}
+ .workspace-shell:has(.page-overview) .mobile52-topbar-logo img{display:block;width:148px;height:65px;object-fit:contain;object-position:left center}
+ .workspace-shell:has(.page-overview) .topbar-actions{gap:5px}
+ .workspace-shell:has(.page-overview) .topbar-actions>.icon-btn{width:38px;height:38px;min-width:38px;border-radius:50%;background:#edf5ff}
+ .workspace-shell:has(.page-overview) .topbar .avatar{display:none}
+ .workspace-shell:has(.page-overview) .demo-banner{font-size:11px;padding:6px 15px;min-height:40px}
+ .workspace-shell:has(.page-overview) .demo-banner button{font-size:11px}
+}
