@@ -1,0 +1,1060 @@
+:root {
+  --brand-blue: #0085ff;
+  --brand-action: #006ad5;
+  --brand-navy: #061b30;
+  --blue: var(--brand-action);
+}
+[data-theme="dark"] {
+  --blue: #62afff;
+}
+.next-horizons,
+.horizons-page,
+.horizon-detail,
+.cover-picker {
+  --muted: #63748b;
+}
+[data-theme="dark"] .next-horizons,
+[data-theme="dark"] .horizons-page,
+[data-theme="dark"] .horizon-detail,
+[data-theme="dark"] .cover-picker {
+  --muted: #a1afc3;
+}
+.my-brand {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: block;
+  width: 174px;
+  height: auto;
+  flex-shrink: 0;
+}
+.my-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+.my-brand .brand-on-dark {
+  display: none;
+}
+.sidebar .my-brand {
+  width: 170px;
+  min-height: 84px;
+  height: auto;
+  margin: 8px auto 24px;
+}
+.auth-story .my-brand {
+  width: 252px;
+  height: auto;
+  margin: 0 0 40px;
+}
+.auth-story {
+  background: var(--brand-navy);
+}
+.auth-story .brand-on-light {
+  display: none;
+}
+.auth-story .brand-on-dark {
+  display: block;
+}
+[data-theme="dark"] .my-brand .brand-on-light {
+  display: none;
+}
+[data-theme="dark"] .my-brand .brand-on-dark {
+  display: block;
+}
+.btn.primary {
+  background: var(--brand-action);
+  border-color: var(--brand-action);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #0085ff80;
+  outline-offset: 3px;
+}
+.upload-cover:focus-within {
+  outline: 3px solid #0085ff80;
+  outline-offset: 3px;
+}
+.next-horizons {
+  margin: 28px 0 34px;
+}
+.next-horizons-heading,
+.horizons-page-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 23px;
+}
+.next-horizons-heading h2,
+.horizons-page-intro h2 {
+  font-size: 29px;
+  letter-spacing: -0.9px;
+  margin: 7px 0 8px;
+  color: var(--text);
+}
+.next-horizons-heading p,
+.horizons-page-intro p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.next-horizons-heading .button-row {
+  gap: 15px;
+  flex-shrink: 0;
+}
+.next-horizons-heading .btn {
+  background: var(--panel);
+}
+.next-horizons-heading .text-btn {
+  font-size: 14px;
+}
+.horizon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.horizon-card.saving-card {
+  padding: 0;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 21px;
+  box-shadow: 0 4px 20px #14284c03;
+  display: flex;
+  flex-direction: column;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+  min-width: 0;
+}
+.horizon-card:hover {
+  border-color: #c6d8ed;
+  box-shadow: 0 8px 28px #14284c08;
+}
+.horizon-card-picture {
+  position: relative;
+  overflow: hidden;
+}
+.cover-open {
+  padding: 0;
+  border: 0;
+  display: block;
+  width: 100%;
+  background: none;
+  cursor: pointer;
+}
+.horizon-cover {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 248px;
+  position: relative;
+  overflow: hidden;
+  background: var(--soft);
+}
+.horizon-cover img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  display: block;
+}
+.icon-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  background: linear-gradient(145deg, var(--soft), var(--bg));
+}
+.icon-cover:before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1px solid #0085ff17;
+  border-radius: 50%;
+}
+.icon-cover:after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #0085ff0e;
+  border-radius: 50%;
+}
+.cover-unavailable {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  bottom: 17px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.horizon-category {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  background: #ffffffed;
+  color: #203a53;
+  border: 1px solid #ffffff80;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+  border-radius: 7px;
+  padding: 6px 10px;
+  pointer-events: none;
+}
+.horizon-favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  border: 1px solid #ffffff85;
+  border-radius: 50%;
+  background: #ffffffed;
+  color: #526781;
+  cursor: pointer;
+}
+.horizon-favorite.selected {
+  color: var(--blue);
+}
+.horizon-done {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  border-radius: 7px;
+  background: #fffffff2;
+  color: #148268;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.horizon-card-content {
+  padding: 23px 24px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.horizon-name {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.horizon-name h3 {
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+.horizon-name > svg {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.horizon-card .goal-values {
+  margin-bottom: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.horizon-card .goal-values strong {
+  font-size: 27px;
+  letter-spacing: -0.9px;
+}
+.horizon-card .goal-values span {
+  font-size: 12px;
+}
+.horizon-progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+.horizon-progress-label > span:first-child {
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.horizon-progress-label > span:last-child {
+  text-align: right;
+}
+.horizon-card .progress {
+  height: 6px;
+  margin-bottom: 17px;
+}
+.horizon-card-facts {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.horizon-card-facts strong {
+  font-weight: 500;
+  color: var(--text);
+}
+.horizon-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+.horizon-card-actions .btn {
+  flex: 1;
+  justify-content: center;
+  font-size: 13px;
+  padding: 11px 10px;
+  min-height: 44px;
+}
+.horizon-plan-link {
+  justify-content: center;
+  font-size: 12px;
+  min-height: 38px;
+  margin-top: 12px;
+}
+.horizon-card .trip-scenario-label {
+  padding-top: 0;
+  margin-bottom: 18px;
+}
+.horizon-card .trip-scenario-label select {
+  min-height: 38px;
+  font-size: 12px;
+  width: 145px;
+}
+.horizon-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) 1fr 1fr;
+  gap: 20px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+.horizon-filters label,
+.horizon-form-visual > label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 0;
+}
+.horizon-filters input,
+.horizon-filters select {
+  width: 100%;
+  font-size: 14px;
+}
+.horizon-status-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 23px;
+}
+.horizon-status-tabs button {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 10px 17px;
+  min-height: 43px;
+  border-radius: 9px;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.horizon-status-tabs button.active {
+  background: var(--panel);
+  border-color: var(--line);
+  color: var(--blue);
+  font-weight: 600;
+}
+.horizon-summary .stat {
+  min-height: 140px;
+}
+.horizon-count {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.horizon-count > span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.horizon-count strong {
+  font-size: 35px;
+}
+.horizon-count small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.horizon-allocation,
+.horizon-comparison {
+  margin-top: 24px;
+}
+.horizon-allocation summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.horizon-allocation p,
+.horizon-comparison > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+.horizon-empty {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 30px;
+}
+.horizon-empty > svg {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.horizon-empty > div {
+  flex: 1;
+}
+.horizon-empty p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 9px;
+}
+.horizon-detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 0 0 23px;
+}
+.horizon-detail-cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  margin-bottom: 22px;
+}
+.horizon-detail-cover .horizon-cover {
+  aspect-ratio: 3.4/1;
+  max-height: 340px;
+  min-height: 210px;
+}
+.horizon-detail-cover .horizon-category {
+  left: 28px;
+  bottom: 25px;
+  font-size: 12px;
+}
+.horizon-detail-main {
+  padding: 30px 32px;
+}
+.horizon-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 27px;
+}
+.horizon-detail-heading h2 {
+  font-size: 34px;
+  line-height: 1.35;
+  letter-spacing: -1px;
+  margin: 7px 0 9px;
+}
+.horizon-detail-heading p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.horizon-completion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--soft);
+  color: #148268;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 15px;
+  flex-shrink: 0;
+}
+.horizon-detail-values {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+.horizon-detail-values > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.horizon-detail-values span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.horizon-detail-values strong {
+  font-size: 29px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+}
+.horizon-detail-values > div:first-child strong {
+  color: var(--blue);
+  font-size: 39px;
+}
+.horizon-detail-progress {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 14px 0 25px;
+}
+.horizon-detail-progress strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.horizon-reservation-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 21px;
+}
+.horizon-rhythm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+.horizon-rhythm > div:first-child {
+  max-width: 730px;
+}
+.horizon-rhythm h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+.horizon-rhythm p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.horizon-rhythm > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 170px;
+}
+.horizon-rhythm span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.horizon-rhythm strong {
+  font-size: 18px;
+}
+.horizon-evolution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.horizon-evolution-grid > .panel {
+  min-width: 0;
+}
+.horizon-evolution-grid h3 {
+  font-size: 19px;
+  margin-bottom: 11px;
+}
+.horizon-evolution-grid p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.horizon-evolution-grid h3 .pill {
+  margin-left: 8px;
+  font-size: 10px;
+  vertical-align: middle;
+}
+.forecast-panel {
+  border-style: dashed;
+}
+.horizon-line-chart {
+  height: 250px;
+  width: 100%;
+  margin-top: 24px;
+}
+.horizon-forecast-empty {
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  color: var(--blue);
+}
+.horizon-premises summary {
+  cursor: pointer;
+  font-size: 14px;
+}
+.horizon-premises p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-top: 15px;
+}
+dialog:has(.horizon-detail) {
+  width: min(1440px, calc(100vw - 40px));
+  max-width: none;
+}
+.cover-picker {
+  margin: 25px 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--soft);
+}
+.cover-picker > .split {
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.cover-picker h3 {
+  font-size: 18px;
+}
+.cover-picker p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+.cover-picker .upload-cover {
+  cursor: pointer;
+  position: relative;
+  font-size: 13px;
+  background: var(--panel);
+  flex-shrink: 0;
+}
+.upload-cover input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.cover-preview {
+  position: relative;
+  border-radius: 11px;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+.cover-preview .horizon-cover {
+  max-height: 240px;
+}
+.cover-processing {
+  position: absolute;
+  inset: 0;
+  background: #061b30aa;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+.cover-framing {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin: 10px 0 20px;
+}
+.cover-framing label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.cover-framing input {
+  padding: 0;
+  min-height: 26px;
+  width: 100%;
+  accent-color: var(--blue);
+}
+.cover-gallery-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 15px;
+}
+.cover-gallery-tabs button {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 7px;
+  padding: 8px 11px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.cover-gallery-tabs button.active {
+  color: var(--blue);
+  background: var(--panel);
+  border-color: var(--line);
+}
+.cover-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 17px;
+}
+.cover-gallery button {
+  background: var(--panel);
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 11px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1.9;
+}
+.cover-gallery button[aria-pressed="true"] {
+  border-color: var(--blue);
+}
+.cover-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cover-picker > .split:last-of-type {
+  flex-wrap: wrap;
+}
+.cover-picker small {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+  flex: 1;
+  min-width: 180px;
+}
+.cover-picker .text-btn {
+  font-size: 12px;
+}
+.horizon-order-list {
+  margin-top: 24px;
+}
+.horizon-order-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+.horizon-order-list .checkbox {
+  font-size: 14px;
+}
+.horizon-order-list .checkbox input {
+  flex-shrink: 0;
+}
+@media (max-width: 1350px) {
+  .horizon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .next-horizons-heading {
+    align-items: flex-start;
+  }
+  .next-horizons-heading .button-row {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .next-horizons-heading h2 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 1050px) {
+  .horizon-card-content {
+    padding: 22px 20px;
+  }
+  .horizon-card-actions {
+    flex-wrap: wrap;
+  }
+  .horizon-card-actions .btn {
+    min-width: 130px;
+  }
+  .next-horizons-heading,
+  .horizons-page-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .next-horizons-heading .button-row {
+    justify-content: flex-start;
+  }
+  .horizon-evolution-grid {
+    grid-template-columns: 1fr;
+  }
+  .horizon-detail-values strong {
+    font-size: 25px;
+  }
+  .horizon-detail-values > div:first-child strong {
+    font-size: 32px;
+  }
+}
+@media (max-width: 767px) {
+  .horizon-favorite {
+    width: 44px;
+    height: 44px;
+  }
+  .horizon-plan-link,
+  .cover-gallery-tabs button {
+    min-height: 44px;
+  }
+  .sidebar .my-brand {
+    width: 165px;
+    min-height: 81px;
+    margin: 8px auto 22px;
+  }
+  .auth-story .my-brand {
+    width: 190px;
+    margin: 0 0 23px;
+  }
+  .next-horizons {
+    margin: 30px 0;
+  }
+  .next-horizons-heading h2,
+  .horizons-page-intro h2 {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+  .next-horizons-heading p,
+  .horizons-page-intro p {
+    font-size: 14px;
+  }
+  .next-horizons-heading .button-row {
+    gap: 12px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .next-horizons-heading .btn {
+    font-size: 13px;
+    padding: 11px 13px;
+  }
+  .horizon-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .horizon-cover {
+    max-height: none;
+    aspect-ratio: 16/9;
+  }
+  .horizon-card-content {
+    padding: 23px 22px;
+  }
+  .horizon-name h3 {
+    font-size: 22px;
+  }
+  .horizon-card .goal-values strong {
+    font-size: 30px;
+  }
+  .horizon-card .goal-values {
+    gap: 6px 10px;
+  }
+  .horizon-progress-label {
+    font-size: 12px;
+    gap: 10px;
+  }
+  .horizon-card-facts {
+    flex-direction: column;
+    gap: 7px;
+  }
+  .horizon-card-actions {
+    flex-wrap: nowrap;
+  }
+  .horizon-card-actions .btn {
+    min-width: 0;
+    font-size: 12px;
+    padding: 11px 8px;
+  }
+  .horizon-card-actions .btn svg {
+    width: 14px;
+  }
+  .horizon-card .trip-scenario-label select {
+    font-size: 15px;
+  }
+  .horizon-filters {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 20px 12px;
+  }
+  .horizon-filters label:first-child {
+    grid-column: 1/-1;
+  }
+  .horizon-filters input,
+  .horizon-filters select {
+    font-size: 16px;
+    min-width: 0;
+    width: 100%;
+  }
+  .horizon-status-tabs {
+    gap: 3px;
+    justify-content: space-between;
+  }
+  .horizon-status-tabs button {
+    padding: 10px 9px;
+    font-size: 12px;
+  }
+  .stats-grid.horizon-summary {
+    grid-template-columns: 1fr;
+  }
+  .horizon-summary .stat {
+    min-height: 125px;
+  }
+  .horizon-empty {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 25px;
+  }
+  .horizon-detail-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .horizon-detail-cover {
+    border-radius: 15px;
+  }
+  .horizon-detail-cover .horizon-cover {
+    aspect-ratio: 16/10;
+    min-height: 0;
+    max-height: none;
+  }
+  .horizon-detail-cover .horizon-category {
+    left: 19px;
+    bottom: 19px;
+  }
+  .horizon-detail-main {
+    padding: 25px 22px;
+  }
+  .horizon-detail-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .horizon-detail-heading h2 {
+    font-size: 29px;
+  }
+  .horizon-detail-values {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 13px;
+  }
+  .horizon-detail-values > div:first-child {
+    grid-column: 1/-1;
+  }
+  .horizon-detail-values > div:first-child strong {
+    font-size: 39px;
+  }
+  .horizon-detail-values strong {
+    font-size: 23px;
+  }
+  .horizon-detail-values span {
+    font-size: 12px;
+  }
+  .horizon-detail-progress {
+    flex-direction: column;
+    gap: 9px;
+    font-size: 12px;
+  }
+  .horizon-detail-main .button-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .horizon-detail-main .btn {
+    justify-content: center;
+  }
+  .horizon-rhythm {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .horizon-evolution-grid h3 {
+    font-size: 18px;
+  }
+  .horizon-line-chart {
+    height: 220px;
+  }
+  .cover-picker {
+    padding: 18px 15px;
+  }
+  .cover-picker > .split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .cover-picker h3 {
+    font-size: 17px;
+  }
+  .cover-preview .horizon-cover {
+    max-height: none;
+  }
+  .cover-framing {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .cover-framing label {
+    gap: 6px;
+  }
+  .cover-gallery-tabs {
+    gap: 4px;
+  }
+  .cover-gallery-tabs button {
+    font-size: 11px;
+    padding: 9px;
+  }
+  .horizon-order-list .checkbox {
+    font-size: 13px;
+  }
+  dialog:has(.horizon-detail) {
+    width: calc(100vw - 20px);
+    padding: 24px 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .horizon-card {
+    transition: none;
+  }
+}
+@media print {
+  .horizon-card-actions,
+  .horizon-favorite,
+  .horizon-detail-top,
+  .next-horizons-heading .button-row,
+  .horizon-status-tabs,
+  .horizon-filters {
+    display: none !important;
+  }
+  .horizon-cover img {
+    print-color-adjust: exact;
+  }
+}

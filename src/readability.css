@@ -1,0 +1,1218 @@
+/* Layout accommodations for Horizon One's larger type. The color palette stays in horizon.css. */
+body {
+  font-size: 15px;
+  line-height: 1.55;
+}
+main {
+  max-width: 1840px;
+}
+.btn {
+  min-height: 44px;
+  padding: 11px 16px;
+}
+.icon-btn {
+  min-height: 38px;
+  min-width: 38px;
+}
+.topbar {
+  height: 74px;
+}
+.topbar-search {
+  max-width: 42%;
+  min-height: 44px;
+  width: 480px;
+}
+.topbar-search > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.topbar-actions {
+  gap: 12px;
+}
+.topbar .breadcrumb {
+  display: none;
+}
+.guide-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.guide-button:hover {
+  background: var(--soft);
+  color: var(--blue);
+}
+.page-heading h1 {
+  font-size: 32px;
+}
+.page-overview .page-heading h1 {
+  font-size: 24px;
+}
+.page-heading p {
+  line-height: 1.7;
+}
+.heading-date {
+  display: none;
+}
+.heading-actions > .btn:not(.primary) {
+  min-width: 44px;
+}
+.global-filters {
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.global-filters label {
+  min-width: 0;
+}
+.global-filters input,
+.global-filters select {
+  min-height: 42px;
+  max-width: 240px;
+}
+.horizon-greeting {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.horizon-greeting h2 {
+  font-size: 30px;
+}
+.horizon-greeting p {
+  margin-top: 9px;
+}
+.hero-balance > strong {
+  font-size: 48px;
+}
+.hero-balance > p {
+  max-width: 440px;
+  line-height: 1.75;
+}
+.hero-buttons {
+  gap: 11px;
+}
+.hero-buttons .btn {
+  min-height: 42px;
+  padding: 11px 15px;
+}
+.hero-flow-chart {
+  height: 150px;
+}
+.horizon-overview-stats .stat {
+  min-height: 166px;
+  padding-bottom: 24px;
+}
+.horizon-overview-stats .stat strong {
+  font-size: 30px;
+}
+.horizon-overview-stats .stat small {
+  line-height: 1.7;
+  max-width: 310px;
+}
+.panel-title {
+  align-items: flex-start;
+  gap: 15px;
+}
+.panel-title .pill {
+  flex-shrink: 0;
+}
+.panel-title p {
+  line-height: 1.7;
+}
+.stat strong {
+  font-size: 29px;
+}
+.stat small {
+  line-height: 1.7;
+}
+.transaction-summary {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+.summary-stat {
+  min-height: 234px;
+  padding: 22px 20px 15px;
+}
+.summary-stat small {
+  line-height: 1.7;
+  min-height: 38px;
+  white-space: normal;
+}
+.summary-label {
+  line-height: 1.5;
+}
+.summary-stat strong {
+  font-size: 27px;
+}
+.period-balance {
+  grid-template-columns: 1fr 1.2fr;
+  padding: 27px;
+}
+.period-balance small {
+  line-height: 1.8;
+  max-width: 220px;
+}
+.period-balance > div:first-child > strong {
+  font-size: 32px;
+}
+.mini-finance-chart {
+  margin-top: auto;
+  height: 42px;
+}
+.transaction-title {
+  padding-right: 330px;
+}
+.transaction-title p {
+  max-width: 650px;
+}
+.transaction-panel .search {
+  width: 310px;
+  min-height: 44px;
+}
+.transaction-panel .search input {
+  min-height: 44px;
+}
+.table-filters {
+  gap: 10px;
+}
+.table-filters select {
+  min-height: 42px;
+  max-width: 230px;
+}
+.table-filters .checkbox {
+  line-height: 1.6;
+}
+.transaction-name strong {
+  line-height: 1.5;
+}
+.transaction-name small {
+  line-height: 1.7;
+}
+th,
+td {
+  padding: 16px 13px;
+}
+.row-actions .icon-btn {
+  min-height: 36px;
+  min-width: 36px;
+}
+.record-card h3 {
+  line-height: 1.5;
+}
+.record-card > .split,
+.record-card .card-bottom {
+  line-height: 1.7;
+}
+.goal-values {
+  gap: 10px;
+}
+.settings-grid .button-row {
+  gap: 10px;
+}
+.settings-grid .btn {
+  white-space: normal;
+}
+.sync-details {
+  grid-template-columns: 0.9fr 1.1fr;
+  overflow-wrap: anywhere;
+}
+.save-scenario {
+  flex-wrap: wrap;
+}
+.result-list > div {
+  line-height: 1.7;
+}
+.result-list strong {
+  white-space: normal;
+}
+.form-grid > label > span {
+  line-height: 1.6;
+}
+input,
+select,
+textarea {
+  min-height: 45px;
+}
+.modal-head h2 {
+  font-size: 25px;
+}
+.modal-head .icon-btn {
+  flex-shrink: 0;
+}
+.start-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--panel);
+}
+.start-hint h3 {
+  font-size: 17px;
+  line-height: 1.6;
+}
+.start-hint p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.quick-guide-list {
+  margin: 22px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quick-guide-list > button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 17px 12px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+}
+.quick-guide-list > button:hover {
+  background: var(--soft);
+}
+.quick-guide-list > button > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.quick-guide-list strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.quick-guide-list small {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-top: 4px;
+}
+.quick-guide-list > button > svg {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.guide-movements {
+  padding: 20px 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.guide-movements p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 7px;
+  line-height: 1.8;
+}
+.guide-movements > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 17px;
+}
+.guide-tip {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+@media (min-width: 1550px) {
+  main {
+    padding: 35px 44px 15px;
+  }
+  .sidebar {
+    width: 264px;
+  }
+  .app-main {
+    margin-left: 264px;
+  }
+  .nav-item {
+    padding: 12px 13px;
+    min-height: 46px;
+  }
+  .nav-label {
+    margin-bottom: 12px;
+  }
+  .hero-balance > strong {
+    font-size: 56px;
+  }
+  .hero-flow-chart {
+    height: 160px;
+  }
+  .horizon-overview-stats .stat strong {
+    font-size: 33px;
+  }
+  .horizon-greeting h2 {
+    font-size: 32px;
+  }
+  .income-flow-chart {
+    height: 260px;
+  }
+}
+@media (max-width: 1250px) {
+  .transaction-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .period-balance {
+    grid-column: 1/-1;
+    min-height: 185px;
+  }
+  .summary-stat {
+    min-height: 232px;
+  }
+  .transaction-title {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+  .transaction-panel .toolbar-end {
+    position: static;
+  }
+  .transaction-panel .toolbar {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .transaction-panel .search {
+    flex: 1;
+    min-width: 190px;
+  }
+  .hero-balance > strong {
+    font-size: 40px;
+  }
+  .topbar-search {
+    max-width: 44%;
+    font-size: 13px;
+  }
+  .topbar-actions .sync-label > span {
+    display: none;
+  }
+  .hero-buttons .btn {
+    padding: 10px 12px;
+  }
+  .horizon-overview-stats .stat strong {
+    font-size: 26px;
+  }
+  .horizon-overview-stats .stat {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
+@media (max-width: 960px) {
+  .record-grid {
+    grid-template-columns: 1fr;
+  }
+  .topbar {
+    padding: 0 24px;
+  }
+  .topbar-search {
+    max-width: 55%;
+  }
+  .guide-button > span {
+    display: none;
+  }
+  .horizon-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .horizon-overview-stats.stats-grid.three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .horizon-overview-stats .stat:last-child {
+    grid-column: 1/-1;
+  }
+  .panel-title .pill {
+    font-size: 11px;
+  }
+  .table-filters select {
+    max-width: 230px;
+  }
+  .period-balance > div:first-child > strong {
+    font-size: 30px;
+  }
+  .summary-stat strong {
+    font-size: 25px;
+  }
+  .summary-stat {
+    padding: 20px 16px 14px;
+  }
+  .result-list > div {
+    flex-wrap: wrap;
+  }
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  body {
+    font-size: 15px;
+  }
+  .app-main {
+    margin-left: 0;
+  }
+  .sidebar {
+    width: 282px;
+  }
+  .sidebar .nav-item {
+    font-size: 15px;
+    min-height: 45px;
+    padding: 12px 13px;
+  }
+  .sidebar .nav-label {
+    font-size: 11px;
+  }
+  .sidebar-search {
+    font-size: 14px;
+    min-height: 43px;
+    margin-bottom: 20px;
+  }
+  .sidebar-search kbd {
+    font-size: 10px;
+  }
+  .topbar {
+    height: 64px;
+    padding: 0 18px;
+  }
+  .topbar .breadcrumb {
+    display: flex;
+    gap: 8px;
+    min-width: 0;
+  }
+  .topbar .breadcrumb strong {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .topbar-actions {
+    gap: 2px;
+  }
+  .topbar-actions .icon-btn,
+  .guide-button {
+    min-height: 38px;
+    min-width: 34px;
+    padding: 7px;
+  }
+  .guide-button > span {
+    display: none;
+  }
+  .topbar .avatar {
+    height: 30px;
+    width: 30px;
+    font-size: 11px;
+  }
+  .demo-banner {
+    font-size: 11px;
+    align-items: center;
+    gap: 10px;
+  }
+  .demo-banner span {
+    line-height: 1.6;
+  }
+  .demo-banner button {
+    font-size: 11px;
+    white-space: normal;
+    text-align: left;
+    max-width: 110px;
+    min-height: 40px;
+    flex-shrink: 0;
+  }
+  .demo-banner span > svg {
+    display: none;
+  }
+  main {
+    padding: 24px 18px 90px;
+    max-width: 100%;
+  }
+  .page-overview .page-heading h1 {
+    font-size: 24px;
+  }
+  .page-heading h1 {
+    font-size: 29px;
+  }
+  .page-heading p {
+    font-size: 14px;
+  }
+  .page-heading .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    line-height: 1.7;
+  }
+  .page-heading {
+    gap: 9px;
+    align-items: flex-start;
+  }
+  .heading-actions {
+    flex-shrink: 0;
+    gap: 6px;
+    padding-top: 6px;
+  }
+  .heading-actions > .btn {
+    height: 40px;
+    min-height: 40px;
+    width: 40px;
+    padding: 9px;
+  }
+  .heading-actions > .btn[aria-label="Novo lançamento"] {
+    display: none;
+  }
+  .global-filters {
+    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .global-filters label:first-child {
+    grid-column: 1/-1;
+  }
+  .global-filters input,
+  .global-filters select {
+    font-size: 13px;
+    min-height: 42px;
+    max-width: 100%;
+    width: 100%;
+  }
+  .horizon-greeting {
+    margin-top: 5px;
+    margin-bottom: 21px;
+  }
+  .horizon-greeting h2 {
+    font-size: 25px;
+    line-height: 1.45;
+  }
+  .horizon-greeting p {
+    font-size: 14px;
+    max-width: 100%;
+    line-height: 1.75;
+  }
+  .balance-hero {
+    padding: 27px 24px 25px;
+    gap: 28px;
+  }
+  .hero-balance > .eyebrow {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .hero-balance > strong {
+    font-size: 38px;
+    letter-spacing: -1.7px;
+  }
+  .hero-balance > p {
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+  .hero-buttons {
+    gap: 9px;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  .hero-buttons .btn {
+    font-size: 13px;
+    min-height: 44px;
+    padding: 11px 13px;
+  }
+  .hero-visual > .split {
+    font-size: 12px;
+    line-height: 1.65;
+    align-items: flex-start;
+  }
+  .hero-visual > .split small {
+    font-size: 10px;
+  }
+  .hero-visual > p {
+    font-size: 11px;
+  }
+  .hero-flow-chart {
+    height: 125px;
+  }
+  .horizon-overview-stats.stats-grid.three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .horizon-overview-stats .stat {
+    padding: 27px 16px 20px;
+    min-height: 178px;
+  }
+  .horizon-overview-stats .stat-top {
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 40px;
+    margin-bottom: 11px;
+  }
+  .horizon-overview-stats .stat strong {
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+  .horizon-overview-stats .stat small {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .horizon-overview-stats .stat:last-child {
+    display: block;
+    min-height: 154px;
+  }
+  .horizon-overview-stats .stat:last-child .stat-top {
+    min-height: 0;
+    margin-bottom: 9px;
+  }
+  .horizon-overview-stats .stat:last-child strong {
+    font-size: 28px;
+  }
+  .horizon-overview-stats .stat:last-child small {
+    font-size: 12px;
+    margin-top: 9px;
+  }
+  .panel {
+    padding: 22px 20px;
+  }
+  .panel-title h3 {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .panel-title p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .panel-title .pill {
+    font-size: 10px;
+    padding: 6px 8px;
+    max-width: 110px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .panel-title .text-btn {
+    font-size: 12px;
+    min-height: 36px;
+  }
+  .activity {
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .activity strong {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .activity small {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .activity > span:last-child {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  .flow-legend {
+    font-size: 12px;
+    gap: 16px;
+  }
+  .flow-legend > strong {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .planning-row {
+    font-size: 13px;
+    gap: 9px;
+    flex-wrap: wrap;
+  }
+  .planning-row > strong {
+    font-size: 14px;
+  }
+  .planning-result > span {
+    font-size: 14px;
+    max-width: 150px;
+    line-height: 1.7;
+  }
+  .planning-result > strong {
+    font-size: 29px;
+  }
+  .planning-result small {
+    font-size: 11px;
+  }
+  .planning-panel > .muted {
+    font-size: 12px;
+  }
+  .goal-preview .split:first-child {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .goal-preview .split:first-child strong {
+    font-size: 12px;
+  }
+  .goal-preview .muted {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .horizon-note p {
+    font-size: 14px;
+  }
+  .horizon-note .text-btn {
+    font-size: 13px;
+  }
+  .upcoming {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .upcoming > div:nth-child(2) {
+    min-width: 110px;
+  }
+  .upcoming strong {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .upcoming small {
+    font-size: 12px;
+  }
+  .upcoming > strong {
+    margin-left: auto;
+  }
+  .date-tile strong {
+    font-size: 16px;
+  }
+  .date-tile small {
+    font-size: 10px;
+  }
+  .insight-message {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .insights-panel > .text-btn {
+    font-size: 13px;
+  }
+  .footnote {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .main-footer {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .transaction-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .period-balance {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 23px;
+  }
+  .period-balance > div:first-child > span {
+    font-size: 14px;
+  }
+  .period-balance > div:first-child > strong {
+    font-size: 32px;
+  }
+  .period-balance p {
+    font-size: 14px;
+  }
+  .period-balance small {
+    font-size: 12px;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+  .period-balance-chart {
+    height: 120px;
+  }
+  .summary-stat {
+    min-height: 244px;
+    padding: 20px 15px 14px;
+  }
+  .summary-label {
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 42px;
+  }
+  .summary-stat strong,
+  .summary-stat.green strong,
+  .summary-stat.red strong {
+    font-size: 24px;
+  }
+  .summary-stat small {
+    font-size: 11px;
+    line-height: 1.7;
+    min-height: 57px;
+  }
+  .summary-stat.blue {
+    min-height: 170px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    column-gap: 10px;
+  }
+  .summary-stat.blue .summary-label {
+    font-size: 13px;
+    min-height: 0;
+  }
+  .summary-stat.blue strong {
+    font-size: 26px;
+  }
+  .summary-stat.blue small {
+    font-size: 11px;
+    min-height: 0;
+  }
+  .summary-stat.blue .mini-finance-chart {
+    height: 74px;
+  }
+  .transaction-title h3 {
+    font-size: 20px;
+  }
+  .transaction-title p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .transaction-panel .toolbar-end > .btn {
+    font-size: 13px;
+    min-height: 44px;
+    padding: 11px 13px;
+  }
+  .transaction-panel .search {
+    min-height: 44px;
+  }
+  .transaction-panel .search input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .table-filters select {
+    font-size: 13px;
+    min-height: 44px;
+    min-width: 130px;
+    max-width: none;
+  }
+  .table-filters .checkbox {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .clear-filters {
+    font-size: 13px;
+    min-height: 40px;
+  }
+  .transaction-panel .transaction-name strong {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .transaction-panel .transaction-name small {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .transaction-panel td:nth-child(6) {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .transaction-panel td:nth-child(4) {
+    font-size: 12px;
+  }
+  .transaction-panel .category-cell,
+  .transaction-panel .account-cell {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .transaction-panel .status {
+    font-size: 11px;
+  }
+  .transaction-panel .row-actions .icon-btn {
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .table-footer {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .record-grid {
+    display: block;
+  }
+  .record-card h3 {
+    font-size: 20px;
+  }
+  .record-card > .muted {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .record-card > .split {
+    font-size: 14px;
+  }
+  .record-card > .progress + .split {
+    font-size: 12px;
+    line-height: 1.7;
+    flex-wrap: wrap;
+  }
+  .record-card > .btn.full {
+    font-size: 14px;
+  }
+  .goal-values strong {
+    font-size: 27px;
+  }
+  .goal-values span {
+    font-size: 13px;
+  }
+  .card-bottom {
+    font-size: 13px;
+  }
+  .scenario-mini {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .scenario-mini > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+  }
+  .scenario-mini span {
+    font-size: 13px;
+  }
+  .scenario-mini strong {
+    font-size: 14px;
+  }
+  .simulation-tabs button {
+    font-size: 14px;
+    padding: 12px 14px;
+    min-height: 44px;
+  }
+  .simulation-result .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .simulation-result .stat {
+    padding: 20px;
+  }
+  .simulation-result .stat-top {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .simulation-result .stat strong {
+    font-size: 28px;
+  }
+  .result-list > div {
+    font-size: 14px;
+  }
+  .result-list strong {
+    white-space: normal;
+  }
+  .settings-grid .muted {
+    font-size: 14px;
+  }
+  .settings-grid .btn {
+    font-size: 14px;
+  }
+  .sync-details {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .setting-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .setting-row select {
+    font-size: 14px;
+    min-height: 44px;
+    width: 150px;
+  }
+  .settings-grid > .panel > label input {
+    font-size: 16px;
+  }
+  .settings-grid > .panel > .code-block {
+    font-size: 13px;
+  }
+  .import-hero > .muted {
+    font-size: 14px;
+  }
+  .upload-zone span {
+    font-size: 13px;
+  }
+  .empty p {
+    font-size: 14px;
+  }
+  .empty .btn {
+    font-size: 14px;
+  }
+  .empty h3 {
+    font-size: 17px;
+  }
+  .empty-icon {
+    height: 52px;
+    width: 52px;
+  }
+  .form-grid > label > span {
+    font-size: 14px;
+  }
+  .form-grid small {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .form-grid {
+    gap: 18px 13px;
+  }
+  .form-actions .btn {
+    font-size: 15px;
+    min-height: 44px;
+  }
+  .form-actions > span {
+    font-size: 12px;
+  }
+  .segmented button {
+    font-size: 14px;
+    min-height: 40px;
+  }
+  .checkbox {
+    font-size: 13px;
+  }
+  .error-box,
+  .success-box,
+  .info-box {
+    font-size: 14px;
+  }
+  .auth-form > .eyebrow {
+    font-size: 11px;
+  }
+  .auth-form > p {
+    font-size: 15px;
+  }
+  .auth-story p {
+    font-size: 14px;
+  }
+  .auth-benefits {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .auth-benefits span {
+    font-size: 12px;
+  }
+  .auth-note {
+    font-size: 12px;
+  }
+  .auth-form > .text-btn {
+    font-size: 13px;
+  }
+  .btn.google {
+    font-size: 15px;
+  }
+  .demo-btn {
+    font-size: 14px;
+  }
+  .auth-bottom {
+    font-size: 10px;
+    letter-spacing: 0.7px;
+    line-height: 1.8;
+  }
+  .divider {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+  }
+  .bottom-nav {
+    min-height: 72px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+  .bottom-nav button {
+    font-size: 11px;
+    min-height: 44px;
+    min-width: 55px;
+    gap: 7px;
+  }
+  .bottom-nav button svg {
+    width: 21px;
+    height: 21px;
+  }
+  .toast {
+    bottom: 90px;
+    font-size: 14px;
+  }
+  dialog {
+    padding: 25px 20px;
+  }
+  .modal-head h2 {
+    font-size: 24px;
+  }
+  .modal-head .eyebrow {
+    font-size: 11px;
+  }
+  .quick-guide-list > button {
+    padding: 17px 10px;
+    gap: 10px;
+  }
+  .quick-guide-list .tile-icon {
+    height: 35px;
+    width: 35px;
+  }
+  .quick-guide-list strong {
+    font-size: 15px;
+  }
+  .quick-guide-list small {
+    font-size: 13px;
+  }
+  .guide-movements > div {
+    flex-direction: column;
+  }
+  .guide-movements .btn {
+    font-size: 14px;
+    min-height: 44px;
+  }
+  .start-hint {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 22px;
+  }
+  .start-hint h3 {
+    font-size: 18px;
+  }
+  .start-hint p {
+    font-size: 14px;
+  }
+  .start-hint .btn {
+    min-height: 44px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 374px) {
+  .hero-balance > strong {
+    font-size: 33px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+  }
+  .horizon-overview-stats .stat strong {
+    font-size: 21px;
+  }
+  .summary-stat strong,
+  .summary-stat.green strong,
+  .summary-stat.red strong {
+    font-size: 21px;
+  }
+  .topbar .breadcrumb strong {
+    font-size: 13px;
+  }
+  .transaction-panel .transaction-name strong {
+    font-size: 13px;
+  }
+  .transaction-panel td:nth-child(6) {
+    font-size: 12px;
+  }
+}
+@media print {
+  .guide-button,
+  .start-hint {
+    display: none !important;
+  }
+  .app-main {
+    margin-left: 0;
+  }
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+  .transaction-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-balance > strong {
+    font-size: 38px;
+  }
+}

@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-vault-storage"
+description = "Ler envelopes cifrados locais e gravar cofre/fila em uma única transação. Sem SQL, filesystem livre ou limpeza de dados."
+commands.allow = ["vault_get", "vault_list", "vault_put", "vault_commit", "outbox_list"]

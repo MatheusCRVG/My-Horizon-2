@@ -1,0 +1,50 @@
+[package]
+name = "my-horizon-native"
+version = "5.1.0"
+description = "My Horizon+ — planejamento financeiro pessoal"
+authors = ["My Horizon+"]
+edition = "2021"
+rust-version = "1.90"
+
+[lib]
+name = "my_horizon_native"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "my-horizon"
+path = "src/main.rs"
+required-features = ["native-shell"]
+
+[features]
+default = ["native-shell"]
+custom-protocol = ["native-shell", "tauri/custom-protocol"]
+native-shell = ["dep:tauri", "dep:tauri-build", "dep:tauri-plugin-opener", "dep:tauri-plugin-deep-link", "dep:tauri-plugin-single-instance", "dep:tauri-plugin-dialog", "dep:tauri-plugin-fs"]
+signed-updates = ["native-shell", "dep:tauri-plugin-updater"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [], optional = true }
+
+[dependencies]
+base64 = "0.22"
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = [], optional = true }
+tauri-plugin-opener = { version = "2", optional = true }
+tauri-plugin-deep-link = { version = "2", optional = true }
+tauri-plugin-dialog = { version = "2", optional = true }
+tauri-plugin-fs = { version = "2", optional = true }
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-single-instance = { version = "2", features = ["deep-link"], optional = true }
+tauri-plugin-updater = { version = "2", optional = true }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
+panic = "abort"

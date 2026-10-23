@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+  <meta charset="UTF-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>Privacidade · My Horizon+</title
+  ><style>
+    body {
+      font:
+        16px/1.8 system-ui,
+        sans-serif;
+      color: #253651;
+      max-width: 760px;
+      margin: 60px auto;
+      padding: 0 24px;
+      background: #f7f9fd;
+    }
+    h1 {
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
+    }
+    a {
+      color: #205ee8;
+    }
+    small {
+      color: #76869e;
+    }
+  </style>
+  <body>
+    <a href="/">← Voltar ao My Horizon+</a>
+    <h1>Seus dados são pessoais.</h1>
+    <small>Atualizado em 23 de outubro de 2026 · versão independente.</small>
+    <p>
+      O My Horizon+ é um aplicativo pessoal de controle e planejamento
+      financeiro. Esta página descreve o comportamento técnico desta versão.
+    </p>
+    <h2>Dados e armazenamento</h2>
+    <p>
+      Receitas, despesas, contas, cartões, metas, patrimônio e simulações são
+      criptografados no dispositivo. O aplicativo instalável guarda envelopes
+      cifrados em SQLite; a versão web preserva o IndexedDB cifrado. Quando você
+      conecta sua conta e autoriza a sincronização, operações cifradas são
+      armazenadas em PostgreSQL/Supabase com acesso isolado por usuário. O Drive
+      é um destino opcional de backup manual na web, separado da sincronização.
+      Identificadores, cursores e datas técnicas não são cifrados. Arquivos Excel, CSV e OFX são
+      processados no dispositivo; somente os registros confirmados passam a
+      integrar o cofre.
+    </p>
+    <h2>Fotos dos seus horizontes</h2>
+    <p>
+      Fotos enviadas são validadas e comprimidas no navegador. A versão
+      comprimida e o enquadramento ficam dentro do mesmo cofre criptografado dos
+      seus objetivos e acompanham os backups e a sincronização autorizada. Não publicamos essas fotos em um serviço de imagens. As capas da
+      galeria são arquivos estáticos distribuídos com o aplicativo. O modo de
+      demonstração usa dados temporários, inclusive as fotos que você escolher
+      nele.
+    </p>
+    <h2>Conta própria e acesso offline</h2>
+    <p>
+      As análises do Horizon AI desta versão são locais, por regras e cálculos.
+      Não há modelo generativo conectado nem envio dos seus registros para um
+      serviço de IA. O Pulse compara os registros com a última visita no
+      dispositivo. Observações patrimoniais são guardadas no cofre para
+      construir um histórico a partir desta versão, sem inventar valores de
+      datas anteriores.
+    </p>
+    <p>
+      O login próprio usa Supabase Auth, com e-mail e senha ou Google via PKCE.
+      No aplicativo nativo, a autorização Google abre o navegador externo.
+      Senhas de conta são enviadas somente ao servidor de autenticação configurado.
+      A senha-mestra e a chave de recuperação não são enviadas ao servidor.
+      Tokens persistentes ficam cifrados pela chave do cofre; chaves abertas ficam
+      na memória. O verificador PKCE temporário é separado dos tokens da conta.
+      Bloquear preserva a autorização offline; sair da conta no dispositivo exige
+      novo login online, sem apagar dados ou alterações pendentes. O modo somente
+      local usa senha-mestra, sem fingir criar uma conta na nuvem.
+    </p>
+    <p>
+      Backups opcionais no Drive usam autorização separada com Google Identity
+      Services e escopo drive.file, limitado aos arquivos do aplicativo ou
+      autorizados a ele. O token do Drive fica apenas na memória. O identificador
+      criptográfico dos cofres antigos é preservado para continuar decifrando
+      os backups existentes.
+    </p>
+    <h2>Serviços externos</h2>
+    <p>
+      O servidor Supabase configurado recebe autenticação, operações cifradas e
+      metadados necessários à sincronização. Google recebe as solicitações
+      necessárias ao login ou ao Drive quando você escolhe esses recursos. A interface
+      usa as fontes do sistema do dispositivo. A hospedagem e o provedor de
+      identidade da hospedagem podem processar dados técnicos, como endereço IP
+      e informações de acesso, conforme suas próprias políticas. Não
+      implementamos rastreadores de publicidade ou venda de dados financeiros.
+    </p>
+    <h2>Controle dos seus dados</h2>
+    <p>
+      Você pode exportar backups criptografados, baixar relatórios legíveis e
+      excluir registros no aplicativo. Exclusões são mantidas como versões de
+      exclusão para sincronização; operações históricas cifradas permanecem no
+      servidor para integridade e reconciliação. Backups antigos no Drive não
+      são apagados automaticamente. A remoção definitiva da conta e de todas as
+      cópias deve ser solicitada ao operador do servidor e incluir backups,
+      dispositivos e navegadores, depois de guardar as cópias desejadas.
+      A revogação do acesso Google pode ser feita
+      nas configurações de segurança da sua conta. Backups exportados ficam sob
+      seu controle.
+    </p>
+    <h2>Senha e recuperação</h2>
+    <p>
+      Sem sua senha-mestra ou chave de recuperação, não é possível recuperar o
+      conteúdo do cofre. Proteja seu dispositivo e seus arquivos exportados.
+      Enquanto o cofre está aberto, o código da página tem acesso aos registros
+      para oferecer as funcionalidades.
+    </p>
+    <h2>Uso pessoal</h2>
+    <p>
+      Esta instância foi preparada para uso pessoal de seu proprietário. Antes
+      de disponibilizá-la a outras pessoas, o responsável pela instância deve
+      informar identidade e canal de contato, revisar as condições de operação e
+      atualizar esta página para refletir sua implantação.
+    </p>
+  </body>
+</html>

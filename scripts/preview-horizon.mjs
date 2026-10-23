@@ -1,0 +1,9 @@
+import {chromium} from '@playwright/test';
+const browser=await chromium.launch({channel:'chrome',headless:true});
+try{
+ const context=await browser.newContext({viewport:{width:1512,height:1050},deviceScaleFactor:1});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://localhost:5173');await page.screenshot({path:'artifacts/horizon-login.png',fullPage:true});await page.getByRole('button',{name:'Explorar com dados fictícios'}).click();await page.waitForTimeout(500);await page.screenshot({path:'artifacts/horizon-overview-desktop.png',fullPage:true});await page.locator('.sidebar').getByRole('button',{name:'Lançamentos',exact:true}).click();await page.waitForTimeout(250);await page.screenshot({path:'artifacts/horizon-transactions-desktop.png',fullPage:true});
+ await page.getByRole('button',{name:'Alternar tema'}).click();await page.screenshot({path:'artifacts/horizon-transactions-dark.png',fullPage:true});
+ const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});const phone=await mobile.newPage();await phone.goto('http://localhost:5173');await phone.getByRole('button',{name:'Explorar com dados fictícios'}).click();await phone.waitForTimeout(500);await phone.screenshot({path:'artifacts/horizon-overview-mobile.png',fullPage:true});await phone.getByRole('button',{name:'Movimentos',exact:true}).click();await phone.screenshot({path:'artifacts/horizon-transactions-mobile.png',fullPage:true});
+ console.log(JSON.stringify({screenshots:6,errors,desktopOverflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),mobileOverflow:await phone.evaluate(()=>document.documentElement.scrollWidth>innerWidth)}));
+}finally{await browser.close()}

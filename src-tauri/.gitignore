@@ -1,0 +1,8 @@
+/target/
+/gen/android/
+/gen/apple/
+/gen/schemas/
+*.keystore
+*.jks
+*.p12
+*.pem

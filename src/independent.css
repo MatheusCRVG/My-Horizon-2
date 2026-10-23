@@ -1,0 +1,113 @@
+.auth-account-tabs {
+  display: flex;
+  padding: 4px;
+  gap: 4px;
+  background: var(--soft, #f3f6fa);
+  border-radius: 12px;
+  margin: 24px 0 18px;
+}
+.auth-account-tabs button {
+  flex: 1;
+  padding: 11px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted, #66768b);
+  font-weight: 600;
+}
+.auth-account-tabs button.active {
+  background: var(--panel, white);
+  color: var(--text, #142638);
+  box-shadow: 0 2px 8px #071e3510;
+}
+.account-fields {
+  display: grid;
+  gap: 16px;
+}
+.account-fields label {
+  display: grid;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.account-fields input {
+  min-height: 48px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line, #dbe3ef);
+  border-radius: 10px;
+  background: var(--panel, white);
+  color: inherit;
+  font: inherit;
+}
+.account-access > .text-btn {
+  margin: 12px 0 18px;
+}
+.account-access > .google {
+  margin-top: 15px;
+}
+.independent-auth .btn.google {
+  background: var(--panel, #fff);
+  color: var(--text, #061b30);
+  border: 1px solid var(--line, #dce4ed);
+  box-shadow: none;
+}
+.independent-auth .auth-entry {
+  padding-block: 40px;
+}
+.independent-auth .auth-form {
+  padding-block: 20px;
+}
+.independent-auth .local-vault-button {
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+.independent-promise {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #bfd4ee;
+  margin-top: 30px;
+  font-size: 13px;
+}
+.independent-auth .import-vault {
+  display: flex;
+  margin: 16px 0;
+  cursor: pointer;
+}
+.sync-label {
+  max-width: 410px;
+}
+.sync-label span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.native-app {
+  overscroll-behavior: none;
+}
+.native-app .topbar {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.native-app .main-footer {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+.account-status {
+  display: grid;
+  gap: 14px;
+}
+.account-status .button-row {
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .independent-auth .auth-entry {
+    padding-block: 16px;
+  }
+  .sync-label {
+    max-width: 175px;
+    font-size: 11px;
+  }
+  .independent-auth .auth-form {
+    padding-block: 5px;
+  }
+}
