@@ -25,7 +25,7 @@ import { Stat, Amount, TypeIcon, Empty } from "../components/ui";
 import { monthlySeries, FlowChart } from "../components/FinanceCharts";
 import { HorizonsDashboard } from "./Horizons";
 import { SavingsDashboard } from "./SavingAnalysis";
-import { DashboardCustomizer, HorizonPulse, ScoreCard } from "./Intelligence";
+import { HorizonPulse, ScoreCard } from "./Intelligence";
 
 export function Dashboard({
   month,
