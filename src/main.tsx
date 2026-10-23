@@ -10,6 +10,7 @@ import "./workspace.css";
 import "./horizon-planning.css";
 import "./cover-refinement.css";
 import "./mobile52.css";
+import "./premium52.css";
 import { BRAND } from "./core/brand";
 import { isNative, openExternal } from "./services/platform";
 import { useFinance } from "./core/store";
