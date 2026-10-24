@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PriceReferenceManager } from "./PriceReferenceManager";
 import {
   Plus,
   ArrowUpRight,
@@ -468,6 +469,7 @@ export function HorizonDetails({
         goal={goal}
         onLegacyEdit={() => setAction("edit")}
       />
+      <PriceReferenceManager goal={goal} />
       <section className="panel horizon-next-contribution">
         <CalendarDays size={21} />
         <div>
