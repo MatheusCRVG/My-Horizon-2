@@ -1,0 +1,24 @@
+/* My Horizon+ 3.0 – researched and user-controlled horizons */
+.ih3-panel{display:grid;gap:15px;margin:20px 0;padding:19px;border:1px solid #d9e8f8;border-radius:22px;background:linear-gradient(145deg,#f7fbff,#fff);box-shadow:0 9px 25px #112e5109}
+.ih3-header{display:flex;align-items:center;gap:11px;color:#1479dc}
+.ih3-header h4{margin:0 0 4px;color:var(--text);font-size:17px}
+.ih3-header small{color:var(--muted);font-size:12px}
+.ih3-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ih3-field{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:13px;min-width:0;color:var(--text)}
+.ih3-field input,.ih3-field select{min-height:45px;width:100%;max-width:100%;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:10px;font-size:15px;color:var(--text)}
+.ih3-field select:focus-visible,.ih3-field input:focus-visible{outline:2px solid #258bff;outline-offset:1px}
+.ih3-quote{display:flex;align-items:flex-start;gap:12px;border:1px solid #bce6d8;border-radius:17px;background:#edf9f5;padding:14px;color:#166a55}
+.ih3-quote>div{display:grid;gap:6px;min-width:0}
+.ih3-quote small{font-size:11px;line-height:1.5}
+.ih3-quote a{font-size:12px;color:#1576c8;display:inline-flex;align-items:center;gap:3px}
+.ih3-panel>.text-btn{width:max-content;min-height:42px}
+.ih3-panel>.btn{min-height:46px}
+.ih3-choice{margin:16px 0}
+.ih3-choice h4{margin-bottom:11px;font-size:16px}
+.ih3-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ih3-choice-grid button{min-height:73px;display:flex;gap:9px;align-items:center;justify-content:center;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--text);font-weight:650;text-align:center}
+.ih3-choice-grid button.selected{border:2px solid #1688f5;background:#eef7ff;color:#0c6ece}
+[data-theme=dark] .ih3-panel{background:#152b43;border-color:#304963}
+[data-theme=dark] .ih3-quote{background:#123e35;border-color:#2b7060;color:#d9fff1}
+[data-theme=dark] .ih3-choice-grid button.selected{background:#193c5d;color:#b9dcff}
+@media(max-width:550px){.ih3-grid{grid-template-columns:1fr}.ih3-panel{padding:15px}.ih3-choice-grid{grid-template-columns:1fr}.ih3-choice-grid button{min-height:60px}}
