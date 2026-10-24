@@ -9,7 +9,7 @@ export type StoreOffer = {
 };
 export const totalOffer = (offer: StoreOffer) => Math.round((offer.price + offer.shipping) * 100) / 100;
 export function bestOffer(offers: StoreOffer[]) {
-  return offers.filter(x=>x.availability==="available").sort((a,b)=>totalOffer(a)-totalOffer(b))[0] ?? null;
+  return [...offers].sort((a,b)=>totalOffer(a)-totalOffer(b))[0] ?? null;
 }
 function validateOffer(v: unknown): StoreOffer | null {
   if (!v || typeof v !== "object") return null;
@@ -59,7 +59,7 @@ export function GenericOfferSearch({ planner, onChange, onSelection }: {
       let response:Response;
       try {response=await fetch(u.toString(),{signal:ctrl.signal,credentials:"omit"});}
       finally{clearTimeout(timer);}
-      if(!response.ok) throw Error("Serviço de pesquisa indisponível.");
+      if(!response.ok) { const details:unknown=await response.json().catch(()=>null);const message=details && typeof details==="object" && "error" in details && typeof details.error==="string" ? details.error : "Serviço de pesquisa indisponível.";throw Error(message); }
       const body:unknown=await response.json();
       if(!body||typeof body!=="object"||!Array.isArray((body as {offers?:unknown}).offers)) throw Error("Resposta inválida da pesquisa.");
       const found=(body as {offers:unknown[]}).offers.slice(0,30).map(validateOffer).filter((o):o is StoreOffer=>!!o);
@@ -77,7 +77,7 @@ export function GenericOfferSearch({ planner, onChange, onSelection }: {
     </div>
     <button type="button" className="btn primary" disabled={loading} onClick={()=>void search()}><Search size={16}/>{loading?"Pesquisando...":"Buscar preços"}</button>
     {!endpoint&&<p className="muted">Para buscar automaticamente, o responsável pelo app deve configurar o serviço seguro de comparação de preços. Você já pode cadastrar uma oferta pesquisada por conta própria.</p>}
-    {winner&&<p className="info-box">Menor oferta disponível entre os resultados desta pesquisa: <strong>{money(totalOffer(winner))}</strong> na {winner.merchant}. Verifique o anúncio antes de comprar.</p>}
+    {winner&&<p className="info-box">Menor preço anunciado entre os resultados desta pesquisa (estoque sujeito à confirmação): <strong>{money(totalOffer(winner))}</strong> na {winner.merchant}. Verifique o anúncio antes de comprar.</p>}
     {offers.map(o=><article className="ih3-store-offer" key={o.id}><div><strong>{o.title}</strong><small>{o.merchant} · {new Date(o.checkedAt).toLocaleString("pt-BR")}</small><strong>{money(totalOffer(o))}</strong><small>{money(o.price)} + {money(o.shipping)} de frete</small>{o.availability==="unknown"&&<small>Estoque não confirmado</small>}</div><div className="ih3-store-actions"><a href={o.url} target="_blank" rel="noopener noreferrer">Ver loja <ExternalLink size={14}/></a><button className="btn" type="button" onClick={()=>addOffer(o)}><CheckCircle2 size={15}/> Usar preço</button></div></article>)}
     <details><summary>Adicionar oferta pesquisada manualmente</summary><div className="ih3-grid">
       <label className="ih3-field">Produto<input value={manualTitle} onChange={e=>setManualTitle(e.target.value)}/></label>
