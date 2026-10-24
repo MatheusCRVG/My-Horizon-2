@@ -23,7 +23,9 @@ function normalize(v:RawOffer,i:number,at:string):Offer|null{
   const title=typeof v.title==="string"?v.title.trim():"";
   const merchant=typeof v.source==="string"?v.source.trim():"";
   const price=v.extracted_price;
-  const url=https(v.product_link);
+  const url=https(v.product_link || v.link);
+  // Reject results with a non-BRL currency. A conversion requires an explicit FX quote.
+  if (typeof v.currency === "string" && !["BRL","R$"].includes(v.currency.trim())) return null;
   const shipping=shippingCost(v.delivery);
   // No missing freight treated as 0. Unknown delivery must be verified manually.
   if(!title||!merchant||!url||typeof price!=="number"||!Number.isFinite(price)||price<=0||price>1e9||shipping===null)return null;
@@ -54,6 +56,7 @@ export default {
     if(!env.SERPAPI_KEY)return json({error:"Provedor de preços ainda não configurado."},503,origin,true);
     // Keep the origin-scoped cache low to reduce third-party API usage.
     const cacheUrl=new URL(url.toString());cacheUrl.searchParams.delete("zip");
+    cacheUrl.searchParams.set("v","3");
     const key=new Request(cacheUrl.toString(),{method:"GET"});
     const cache=caches.default;
     const cached=await cache.match(key);
@@ -65,7 +68,9 @@ export default {
     provider.searchParams.set("gl","br");
     provider.searchParams.set("hl","pt");
     provider.searchParams.set("api_key",env.SERPAPI_KEY);
-    const response=await fetch(provider,{signal:AbortSignal.timeout(10000)});
+    let response: Response;
+    try { response = await fetch(provider,{signal:AbortSignal.timeout(10000)}); }
+    catch { return json({error:"Não foi possível consultar os preços agora. Tente novamente."},502,origin,true); }
     if(!response.ok)return json({error:"Provedor de preços temporariamente indisponível."},502,origin,true);
     const raw:unknown=await response.json();
     const data=raw&&typeof raw==="object"?raw as Record<string,unknown>:{};
