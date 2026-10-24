@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { IntelligentResearch } from "./IntelligentResearch";
+import { GenericOfferSearch } from "./GenericOfferSearch";
 import type { QuoteRecord, PriceUpdatePolicy } from "../core/horizon-intelligence";
 import {
   ArrowLeft,
@@ -446,7 +447,7 @@ export function HorizonWizard({
                   />
                 </label>
               </div>
-              {method === "planned" && (planner.type === "travel" || planner.type === "car") && <div className="ih3-choice"><h4>Como deseja definir os preços?</h4><div className="ih3-choice-grid"><button type="button" className={researchMode === "automatic" ? "selected" : ""} aria-pressed={researchMode === "automatic"} onClick={() => setResearchMode("automatic")}><Sparkles size={18}/> Pesquisar na internet</button><button type="button" className={researchMode === "manual" ? "selected" : ""} aria-pressed={researchMode === "manual"} onClick={() => setResearchMode("manual")}><Pencil size={18}/> Preencher manualmente</button></div></div>}
+              {method === "planned" && (planner.type === "travel" || planner.type === "car" || planner.type === "items") && <div className="ih3-choice"><h4>Como deseja definir os preços?</h4><div className="ih3-choice-grid"><button type="button" className={researchMode === "automatic" ? "selected" : ""} aria-pressed={researchMode === "automatic"} onClick={() => setResearchMode("automatic")}><Sparkles size={18}/> Pesquisar na internet</button><button type="button" className={researchMode === "manual" ? "selected" : ""} aria-pressed={researchMode === "manual"} onClick={() => setResearchMode("manual")}><Pencil size={18}/> Preencher manualmente</button></div></div>}
               {method === "direct" ? (
                 <div className="budget-fields">
                   <BudgetNumber
@@ -473,6 +474,7 @@ export function HorizonWizard({
                 />
               )}
               {method === "planned" && researchMode === "automatic" && (planner.type === "travel" || planner.type === "car") && <IntelligentResearch planner={planner} onChange={setPlanner} quote={researchQuote} onQuoteChange={setResearchQuote} policy={pricePolicy} onPolicyChange={setPricePolicy} />}
+              {method === "planned" && researchMode === "automatic" && planner.type === "items" && <GenericOfferSearch planner={planner} onChange={setPlanner} onSelection={({query,offer}) => setNotes(v => v || `Pesquisa: ${query}. Oferta: ${offer.url} · ${offer.checkedAt}`)} />}
               {!(method === "planned" && planner.type === "travel") && (
                 <label className="budget-field">
                   Prazo desejado (opcional)
