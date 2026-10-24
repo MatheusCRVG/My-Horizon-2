@@ -1,0 +1,69 @@
+/* My Horizon+ 5.2 – mobile-first dock, Android safe areas and touch layout */
+.mobile52-dock,.mobile52-quick-trigger,.mobile52-overlay,.mobile52-topbar-logo,.mobile52-search-trigger{display:none}
+@media(max-width:720px){
+  .workspace-mobile-nav{display:none!important}
+  .workspace-shell .app-main main{padding-bottom:calc(152px + env(safe-area-inset-bottom,0px))}
+  .workspace-shell .topbar{min-height:62px;height:auto;padding:8px 16px;padding-top:calc(8px + env(safe-area-inset-top,0px))}
+  .workspace-shell .topbar .breadcrumb{font-size:12px;gap:9px}
+  .workspace-shell .topbar .breadcrumb strong{color:var(--text);font-weight:750;max-width:140px}
+  .workspace-shell .topbar .mobile-menu{display:none}
+  .mobile52-topbar-logo{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:#e9f4ff;flex-shrink:0}
+  .mobile52-topbar-logo img{width:27px;height:20px;object-fit:contain}
+  [data-theme=dark] .mobile52-topbar-logo{background:#213d5a}
+  .mobile52-search-trigger{display:inline-flex!important}
+  .workspace-shell .topbar-actions .guide-button,.workspace-shell .topbar-actions .avatar{display:none}
+  .workspace-shell .topbar-actions .icon-btn{width:40px;min-width:40px;height:44px;border-left:0;padding:0;border-radius:12px}
+  .workspace-shell .page-heading{gap:10px}
+  .workspace-shell .page-heading h1{font-size:clamp(24px,6.4vw,32px);line-height:1.2}
+  .workspace-shell .page-heading .heading-actions .btn.primary{display:none}
+  .workspace-shell .global-filters{gap:10px;overflow-x:auto;scrollbar-width:none}
+  .workspace-shell .global-filters::-webkit-scrollbar{display:none}
+  .workspace-shell .global-filters label{flex:0 0 auto}
+  .workspace-shell .global-filters input,.workspace-shell .global-filters select{font-size:16px;min-height:44px}
+  .workspace-context select{min-height:46px;font-size:16px}
+  .mobile52-dock{
+    position:fixed;z-index:102;bottom:calc(11px + env(safe-area-inset-bottom,0px));
+    left:50%;transform:translateX(-50%);width:min(470px,calc(100vw - 28px));
+    min-height:70px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+    padding:7px;border:1px solid rgba(255,255,255,.67);border-radius:27px;
+    background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(22px) saturate(1.5);backdrop-filter:blur(22px) saturate(1.5);
+    box-shadow:0 13px 40px rgba(14,39,74,.16),0 2px 9px rgba(14,39,74,.05)
+  }
+  [data-theme=dark] .mobile52-dock{background:rgba(22,33,50,.90);border-color:rgba(183,206,245,.18);box-shadow:0 12px 40px #0006}
+  .mobile52-dock button{border:0;border-radius:21px;min-width:0;min-height:56px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;color:var(--muted);background:transparent;font:inherit;font-size:10px;font-weight:650;padding:7px 1px;transition:background .18s,color .18s,transform .18s}
+  .mobile52-dock button.active{background:rgba(0,133,255,.11);color:var(--blue)}
+  .mobile52-dock button:active{transform:scale(.94)}
+  .mobile52-dock button svg{flex-shrink:0}
+  .mobile52-dock button span{overflow:hidden;max-width:100%;text-overflow:ellipsis;white-space:nowrap}
+  .mobile52-quick-trigger{
+    position:fixed;display:flex;align-items:center;gap:7px;right:max(20px,calc((100vw - 455px)/2));bottom:calc(96px + env(safe-area-inset-bottom,0px));
+    z-index:101;min-height:52px;padding:0 18px;border:0;border-radius:18px;
+    background:var(--brand-action,#006ad5);color:#fff;font:inherit;font-weight:700;font-size:14px;
+    box-shadow:0 9px 25px rgba(0,106,213,.27)
+  }
+  .mobile52-quick-trigger:active{transform:scale(.97)}
+  .mobile52-overlay{display:flex;position:fixed;inset:0;z-index:150;background:rgba(9,20,36,.52);align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+  .mobile52-sheet{width:min(100%,540px);max-height:min(86dvh,800px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line);border-radius:28px 28px 0 0;padding:22px 20px calc(25px + env(safe-area-inset-bottom,0px));background:var(--panel);color:var(--text);box-shadow:0 -15px 40px rgba(0,0,0,.15)}
+  .mobile52-sheet:before{content:"";display:block;width:40px;height:5px;margin:-9px auto 18px;border-radius:10px;background:var(--line)}
+  .mobile52-sheet-header{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px}
+  .mobile52-sheet-eyebrow{color:var(--blue);font-size:10px;font-weight:800;letter-spacing:1.4px}
+  .mobile52-sheet-header h2{font-size:25px;margin:4px 0 0}
+  .mobile52-close{width:44px;height:44px;border:0;background:var(--soft);color:var(--text);border-radius:50%;display:grid;place-items:center}
+  .mobile52-search{display:flex;align-items:center;gap:12px;text-align:left;width:100%;min-height:52px;border:1px solid var(--line);border-radius:15px;color:var(--muted);background:var(--soft);padding:12px 16px;font-size:14px}
+  .mobile52-section{margin-top:25px}
+  .mobile52-section h3{font-size:12px;letter-spacing:.5px;color:var(--muted);margin-bottom:9px}
+  .mobile52-section button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:49px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;color:var(--text);font-size:15px;padding:11px 4px}
+  .mobile52-section button[aria-current=page]{font-weight:700;color:var(--blue)}
+  .mobile52-quick-options>p{font-size:14px;color:var(--muted);margin-bottom:18px}
+  .mobile52-quick-options>button{width:100%;min-height:80px;display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;margin:11px 0;text-align:left;color:var(--text)}
+  .mobile52-quick-options>button>span:nth-child(2){display:flex;flex:1;flex-direction:column;gap:4px}
+  .mobile52-quick-options small{font-size:12px;color:var(--muted)}
+  .mobile52-action-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:14px}
+  .mobile52-action-icon.income{background:#e7f9f2;color:#0b9162}
+  .mobile52-action-icon.expense{background:#fff0ef;color:#d45758}
+  .workspace-shell button,.workspace-shell a{touch-action:manipulation}
+  .workspace-shell input,.workspace-shell textarea,.workspace-shell select{font-size:max(16px,1em)}
+}
+@media(max-width:360px){.mobile52-dock{width:calc(100vw - 14px);padding:5px}.mobile52-dock button{font-size:9px}.mobile52-dock button svg{width:20px}}
+@media(prefers-reduced-motion:reduce){.mobile52-dock button,.mobile52-quick-trigger{transition:none}}
+@media print{.mobile52-dock,.mobile52-quick-trigger,.mobile52-overlay{display:none!important}}

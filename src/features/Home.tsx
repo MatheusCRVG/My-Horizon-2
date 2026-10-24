@@ -1,10 +1,15 @@
-import type { ReactNode } from "react";
+function greetingForHour(hour: number): string { return hour < 12 ? "Bom dia." : hour < 18 ? "Boa tarde." : "Boa noite."; }
+import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
   Plus,
   Sparkles,
   CalendarDays,
+  Eye,
+  EyeOff,
+  Target,
+  PiggyBank,
 } from "lucide-react";
 import { useFinance } from "../core/store";
 import { money, rows, today, dateLabel } from "../core/model";
@@ -21,7 +26,7 @@ import { Stat, Amount, TypeIcon, Empty } from "../components/ui";
 import { monthlySeries, FlowChart } from "../components/FinanceCharts";
 import { HorizonsDashboard } from "./Horizons";
 import { SavingsDashboard } from "./SavingAnalysis";
-import { DashboardCustomizer, HorizonPulse, ScoreCard } from "./Intelligence";
+import { HorizonPulse, ScoreCard } from "./Intelligence";
 
 export function Dashboard({
   month,
@@ -30,6 +35,7 @@ export function Dashboard({
   navigate,
   add,
   pulseBaseline,
+  setMonth,
 }: {
   month: string;
   account: string;
@@ -37,7 +43,16 @@ export function Dashboard({
   navigate: (p: string) => void;
   add: (type?: "income" | "expense") => void;
   pulseBaseline: PulseSnapshot | null;
+  setMonth: (month: string) => void;
 }) {
+  const [hiddenValues, setHiddenValues] = useState(false);
+  const [greeting, setGreeting] = useState(() => greetingForHour(new Date().getHours()));
+  useEffect(() => {
+    const update = () => setGreeting(greetingForHour(new Date().getHours()));
+    const timer = window.setInterval(update, 60_000);
+    document.addEventListener("visibilitychange", update);
+    return () => { window.clearInterval(timer); document.removeEventListener("visibilitychange", update); };
+  }, []);
   const { doc } = useFinance(),
     t = totals(doc!, month),
     series = monthlySeries(doc!, month, account, category);
@@ -198,76 +213,42 @@ export function Dashboard({
       </div>
     ),
   };
+  const past = totals(doc!, new Date(Number(month.slice(0,4)), Number(month.slice(5))-2, 1).toISOString().slice(0,7));
+  const growth = past.balance ? (t.balance - past.balance) / Math.abs(past.balance) * 100 : null;
+  const mainGoal = objectives(doc!).find(g => !g.data.archived);
+  const mainProgress = mainGoal ? savingSummary(doc!, mainGoal) : null;
   return (
-    <div className="home-workspace">
-      <section className="home-intro">
-        <div>
-          <span className="eyebrow">SEU DINHEIRO. SEUS SONHOS.</span>
-          <h2>
-            {new Date().getHours() < 12
-              ? "Bom dia."
-              : new Date().getHours() < 18
-                ? "Boa tarde."
-                : "Boa noite."}{" "}
-            <span>Seu próximo horizonte começa aqui.</span>
-          </h2>
+    <div className="home-workspace home52-premium">
+      <section className="home52-hero">
+        <div className="home52-hero-copy">
+          <h2><strong>{greeting}</strong><span>Seu próximo horizonte começa aqui.</span></h2>
+          <label className="home52-month"><CalendarDays size={20}/><span>{new Date(Number(month.slice(0,4)),Number(month.slice(5))-1,1).toLocaleDateString("pt-BR",{month:"long",year:"numeric"})}</span><input aria-label="Selecionar mês" type="month" value={month} onChange={e=>{if(e.target.value) setMonth(e.target.value)}} /></label>
         </div>
-        <DashboardCustomizer />
       </section>
       {!rows(doc!, "account").length && (
-        <section className="start-hint">
-          <div>
-            <h3>Comece pelo dinheiro que você já tem</h3>
-            <p>
-              Cadastre uma conta com saldo de abertura. Depois, registre
-              entradas e saídas.
-            </p>
-          </div>
-          <button className="btn primary" onClick={() => navigate("account")}>
-            Cadastrar conta <ArrowRight size={16} />
-          </button>
-        </section>
+        <section className="start-hint"><div><h3>Seu dinheiro começa aqui</h3><p>Cadastre sua primeira conta para acompanhar seus objetivos.</p></div><button className="btn primary" onClick={() => navigate("account")}>Adicionar conta <ArrowRight size={16}/></button></section>
       )}
-      <section
-        className="home-questions"
-        aria-label="Seu dinheiro em três perguntas"
-      >
-        <article className="home-money">
-          <span>Quanto dinheiro eu tenho?</span>
-          <strong>{money(t.balance)}</strong>
+      <section className="home52-overview" aria-label="Resumo do meu dinheiro">
+        <article className="home52-wealth">
+          <div className="home52-wealth-top">
+            <div className="home52-wealth-title"><span>Meu patrimônio</span><button type="button" aria-label={hiddenValues?"Mostrar valores":"Ocultar valores"} aria-pressed={hiddenValues} onClick={()=>setHiddenValues(v=>!v)}>{hiddenValues?<EyeOff size={22}/>:<Eye size={22}/>}</button></div>
+            {growth !== null && <span className={`home52-growth ${growth>=0?"positive":"negative"}`}>{growth>=0?"↗":"↘"} {growth>=0?"+":""}{growth.toLocaleString("pt-BR",{maximumFractionDigits:1})}%<small>vs. mês anterior</small></span>}
+          </div>
+          <strong className="home52-wealth-amount">{hiddenValues?"R$ ••••••":money(t.balance)}</strong>
           <p>Nas contas cadastradas, com movimentos confirmados até hoje.</p>
-          <button className="text-btn" onClick={() => navigate("account")}>
-            Ver minhas contas <ArrowUpRight size={15} />
-          </button>
+          <div className="home52-wealth-chart" aria-hidden="true"><svg viewBox="0 0 600 110" preserveAspectRatio="none"><defs><linearGradient id="h52line" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#d5eaff"/><stop offset="1" stopColor="#1885ff"/></linearGradient></defs><path d="M0 87 C55 74 70 89 110 84 S167 63 206 73 S266 45 303 58 S368 62 406 36 S466 51 506 25 S557 36 600 8" fill="none" stroke="url(#h52line)" strokeWidth="5" strokeLinecap="round"/><circle cx="600" cy="8" r="7" fill="#1685ff" stroke="white" strokeWidth="4"/></svg></div>
         </article>
-        <article>
-          <span>Quanto posso guardar?</span>
-          <strong className={t.saving < 0 ? "negative" : ""}>
-            {money(capacity.prudent)}
-          </strong>
-          <p>
-            Estimativa para o mês atual, limitada pela sobra, pelo dinheiro
-            livre e pelas despesas previstas.
-          </p>
-          <button className="text-btn" onClick={() => navigate("calendar")}>
-            Planejar este mês <ArrowUpRight size={15} />
-          </button>
-        </article>
-        <article>
-          <span>Qual é meu próximo horizonte?</span>
-          <strong className="home-next-date">
-            {next ? dateLabel(next.completion!) : "No seu ritmo"}
-          </strong>
-          <p>
-            {next
-              ? `${next.goal.data.name} · conclusão estimada pelo plano, sem rendimento.`
-              : "Escolha um objetivo e seu ritmo de aportes para estimar a próxima conquista."}
-          </p>
-          <button className="text-btn" onClick={() => navigate("goal")}>
-            Meus horizontes <ArrowUpRight size={15} />
-          </button>
-        </article>
+        <div className="home52-mini-grid">
+          <button type="button" className="home52-mini" onClick={()=>navigate("calendar")}><span className="home52-icon"><PiggyBank size={25}/></span><span>Quanto posso guardar?</span><strong>{hiddenValues?"R$ ••••••":money(capacity.prudent)}</strong><small>Estimativa para este mês</small><ArrowRight className="home52-mini-arrow" size={21}/></button>
+          <button type="button" className="home52-mini" onClick={()=>navigate("goal")}><span className="home52-icon"><Target size={25}/></span><span>Próximo horizonte</span><strong>{next?dateLabel(next.completion!):"Comece hoje"}</strong><small>{next?next.goal.data.name:"Escolha sua próxima meta"}</small><ArrowRight className="home52-mini-arrow" size={21}/></button>
+        </div>
+        <button type="button" className="home52-goal" onClick={() => navigate("goal")}>
+          <span className="home52-goal-content"><strong>Seus horizontes</strong><small>{mainGoal?`Seu plano principal está ${mainProgress&&mainProgress.target>0?Math.round(mainProgress.saved/mainProgress.target*100):0}% concluído.`:"Transforme planos em conquistas."}</small><span className="home52-goal-progress"><span style={{width:mainProgress&&mainProgress.target>0?`${Math.min(100,Math.max(0,mainProgress.saved/mainProgress.target*100))}%`:"0%"}}/></span></span>
+          <span className="home52-goal-art" aria-hidden="true"/>
+          <span className="home52-goal-arrow"><ArrowRight size={21}/></span>
+        </button>
       </section>
+      <details className="home52-more"><summary>Explorar meus dados financeiros</summary>
       <div className="home-month-stats">
         <Stat
           label="Receitas do mês"
@@ -317,6 +298,7 @@ export function Dashboard({
           </div>
         ))}
       </div>
+      </details>
       <p className="footnote">
         Os valores refletem somente os dados cadastrados. Projeções são
         estimativas e não alteram seus saldos.

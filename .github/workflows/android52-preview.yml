@@ -1,0 +1,119 @@
+name: APK Android 5.2 Preview e validação mobile
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "src-tauri/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tests/e2e/mobile52.spec.ts"
+      - ".github/workflows/android52-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-ui:
+    name: Navegação mobile em navegador
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Instalar dependências
+        run: npm ci
+      - name: Instalar navegador Playwright
+        run: npx playwright install --with-deps chrome
+      - name: Validar dock em viewport mobile
+        run: npx playwright test tests/e2e/mobile52.spec.ts --project=mobile
+      - name: Imagens e diagnóstico mobile
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: My-Horizon-5.2-Preview-Imagens-Mobile
+          path: |
+            artifacts/mobile52-*.png
+            test-results/
+          if-no-files-found: warn
+          retention-days: 14
+
+  android-preview:
+    name: Compilar APK Android 5.2 Preview
+    needs: mobile-ui
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      CI: "true"
+    steps:
+      - name: Obter projeto
+        uses: actions/checkout@v4
+      - name: Preparar Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Preparar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Usar Android SDK já instalado
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --version
+      - name: Selecionar Android NDK
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${ANDROID_NDK_LATEST_HOME:-}" ] && [ -d "$ANDROID_NDK_LATEST_HOME" ]; then
+            NDK_DIR="$ANDROID_NDK_LATEST_HOME"
+          else
+            NDK_DIR="$(find "$ANDROID_HOME/ndk" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort -V | tail -n 1 || true)"
+          fi
+          if [ -z "$NDK_DIR" ] || [ ! -d "$NDK_DIR" ]; then
+            sdkmanager --install 'ndk;27.2.12479018'
+            NDK_DIR="$ANDROID_HOME/ndk/27.2.12479018"
+          fi
+          echo "NDK_HOME=$NDK_DIR" >> "$GITHUB_ENV"
+      - name: Preparar Rust Android ARM64
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - name: Instalar dependências
+        run: npm ci
+      - name: Verificar versão isolada de teste
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q '"identifier": "app.myhorizon.plus.preview"' src-tauri/tauri.conf.json
+          grep -q '"version": "5.2.0"' src-tauri/tauri.conf.json
+          echo "APK preview isolado: não substitui My Horizon+ 5.1."
+      - name: Inicializar Android Tauri
+        run: npm exec tauri -- android init --ci
+      - name: Compilar APK ARM64 de teste
+        run: npm exec tauri -- android build --debug --apk --target aarch64 --ci
+      - name: Validar os arquivos APK gerados
+        shell: bash
+        run: |
+          set -euo pipefail
+          find src-tauri/gen/android/app/build/outputs -name '*.apk' -type f -print | tee /tmp/apks.txt
+          test -s /tmp/apks.txt
+          while IFS= read -r apk; do unzip -t "$apk" >/dev/null; done < /tmp/apks.txt
+      - name: Publicar APK 5.2 Preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: My-Horizon-Plus-5.2-Preview-APK-Android
+          path: src-tauri/gen/android/app/build/outputs/apk/**/*.apk
+          if-no-files-found: error
+          retention-days: 14

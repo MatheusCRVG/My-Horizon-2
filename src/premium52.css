@@ -1,0 +1,176 @@
+/* My Horizon+ 5.2: coherent premium presentation across the application */
+.workspace-shell{--line:#e6edf7;--muted:#63758d;background:linear-gradient(160deg,#f8fbff,#f4f8fd)}
+.workspace-shell .panel,.workspace-shell .stat,.workspace-shell .horizon-card,.workspace-shell .record-card{border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 32px rgba(24,59,102,.045)}
+.workspace-shell .btn,.workspace-shell input,.workspace-shell select,.workspace-shell textarea{border-radius:14px}
+.workspace-shell .btn{min-height:44px}
+.workspace-shell .page-heading h1{letter-spacing:-.035em}
+.workspace-shell .page-heading p{line-height:1.55}
+.workspace-shell button:focus-visible,.workspace-shell a:focus-visible{outline:3px solid #428fff;outline-offset:2px}
+.home52-premium{display:grid;gap:18px}
+.home52-hero{padding:26px;border-radius:28px;border:1px solid #e5effc;min-height:178px;background:radial-gradient(circle at 86% 70%,#e0eeff 0 20%,transparent 20.5%),linear-gradient(145deg,#fff,#edf6ff)}
+.home52-hero h2{font-size:clamp(29px,4.6vw,45px);line-height:1.16;letter-spacing:-.045em;max-width:580px}
+.home52-hero h2 span{font-weight:400;color:#62758f}
+.home52-balance{background:linear-gradient(145deg,#eaf5ff,#fff)!important;border-color:#dbeafd!important}
+.home52-balance-label{display:flex;align-items:center;gap:10px}
+.home52-balance-label span{color:#5a708c;font-size:15px}
+.home52-balance-label button{display:grid;place-items:center;width:44px;height:44px;color:#4c6989;background:#fff9;border:0;border-radius:50%}
+.home52-balance>strong{font-size:clamp(29px,5vw,44px)!important;word-break:break-word}
+.home52-goal{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:20px;background:linear-gradient(120deg,#fff,#f0f7ff);border:1px solid #deebfa;border-radius:24px;color:var(--text);min-height:104px}
+.home52-goal-icon{display:grid;place-items:center;width:46px;height:46px;flex-shrink:0;border-radius:15px;background:#e8f1ff;color:#167cf0}
+.home52-goal-content{display:grid;gap:6px;flex:1;min-width:0}
+.home52-goal-content strong{font-size:17px}
+.home52-goal-content small{font-size:12px;color:var(--muted)}
+.home52-goal-progress{height:8px;width:100%;border-radius:8px;background:#e5eefa;overflow:hidden}
+.home52-goal-progress span{display:block;height:100%;background:#278aff;border-radius:8px}
+.home52-more{border-radius:22px}
+.home52-more>summary{display:flex;align-items:center;min-height:50px;color:#247bd7;font-weight:650;cursor:pointer;padding:12px 4px}
+.home52-more[open]>summary{margin-bottom:12px}
+[data-theme=dark] .home52-hero{background:linear-gradient(135deg,#1e344a,#162638);border-color:#2b4562}
+[data-theme=dark] .home52-balance,[data-theme=dark] .home52-goal{background:linear-gradient(135deg,#1b344e,#172738)!important;border-color:#2c486a!important}
+[data-theme=dark] .home52-hero h2 span{color:#bdcbe0}
+@media(max-width:720px){
+  .workspace-shell .page-heading{margin-bottom:16px}
+  .workspace-shell .page-heading .eyebrow,.workspace-shell .page-heading p{display:none}
+  .workspace-shell main{padding-bottom:calc(140px + env(safe-area-inset-bottom,0px))}
+  .workspace-shell .panel,.workspace-shell .stat{border-radius:20px}
+  .workspace-shell .global-filters{gap:8px}
+  .workspace-shell .global-filters select,.workspace-shell .global-filters input{font-size:16px;min-height:44px}
+  .workspace-shell .workspace-context select{font-size:16px}
+  .home52-premium{gap:14px}
+  .home52-hero{padding:22px;min-height:152px}
+  .home52-hero h2{font-size:30px}
+  .home52-goal{padding:15px}
+  .home52-more .home-month-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home52-premium .home-questions{margin:0}
+  .home52-premium .home-questions article{border-radius:22px}
+  .home52-premium .home-actions{margin:4px 0}
+  .home52-premium .home-actions>button{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.home52-premium *{transition:none!important;animation:none!important}}
+
+/* Simplified welcome screen */
+.premium52-auth-choices{display:grid;gap:12px;margin:25px 0}
+.premium52-auth-choices button{display:flex;align-items:center;justify-content:space-between;min-height:58px;width:100%;border-radius:16px;border:1px solid #dce8f5;padding:14px 18px;font-size:16px;font-weight:650;cursor:pointer}
+.premium52-auth-primary{background:#087dfa;color:#fff;border-color:#087dfa!important}
+.premium52-auth-secondary{background:#f8fbff;color:#102b4b}
+.premium52-auth-demo{color:#2475bc;background:transparent!important;border:0!important;font-size:14px!important;justify-content:center!important;gap:10px}
+.premium52-auth-back{min-height:44px}
+.premium52-secondary-onboarding{display:none}
+.auth-refined .auth-form:has(.premium52-auth-choices)>p{margin-bottom:16px}
+@media(max-width:720px){.auth-refined .auth-form:has(.premium52-auth-choices){padding:0 10px}.auth-refined .auth-form:has(.premium52-auth-choices) h2{font-size:clamp(32px,8vw,48px)}}
+
+/* 5.2 reference fidelity: mountain illustration, wealth chart and compact cards */
+.home52-premium{position:relative;gap:14px}
+.page-overview>.page-heading,.page-overview>.global-filters,.page-overview>.workspace-context{display:none!important}
+.home52-hero{min-height:318px;border:0;border-radius:0;padding:32px 26px 18px;background:linear-gradient(90deg,rgba(246,251,255,.97) 0%,rgba(246,251,255,.65) 37%,rgba(246,251,255,0) 80%),url("/brand/horizon-landscape.svg") center/cover no-repeat;display:flex;align-items:flex-start}
+.home52-hero-copy{position:relative;z-index:1;width:100%}
+.home52-hero h2{display:grid;gap:7px;margin:0 0 25px;line-height:1.1;letter-spacing:-.044em;font-size:clamp(28px,4.3vw,45px);max-width:520px}
+.home52-hero h2 strong{font-weight:800;color:#0b1d37}
+.home52-hero h2 span{font-weight:390;color:#5b718e}
+.home52-month{position:relative;width:max-content;max-width:100%;display:flex;align-items:center;gap:13px;border-radius:100px;border:1px solid #e2ebf5;background:rgba(255,255,255,.95);padding:15px 19px;box-shadow:0 8px 24px #1b49700c;font-size:14px;color:#243a57;min-height:53px;text-transform:lowercase}
+.home52-month input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.home52-overview{display:grid;gap:14px}
+.home52-wealth,.home52-mini,.home52-goal{background:#fff;border:1px solid #e3edf8;border-radius:24px;box-shadow:0 10px 30px #1c4d780a}
+.home52-wealth{position:relative;overflow:hidden;min-height:225px;padding:25px 26px 10px;background:linear-gradient(140deg,#fff,#f1f8ff)}
+.home52-wealth-top{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.home52-wealth-title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:#14273f}
+.home52-wealth-title button{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:0;background:transparent;color:#526e91}
+.home52-wealth-amount{display:block;font-size:clamp(30px,4vw,47px);font-weight:750;letter-spacing:-.055em;line-height:1.1;margin:18px 0 13px;color:#071b35}
+.home52-wealth p{font-size:13px;line-height:1.55;color:#70829b;max-width:290px;margin:0}
+.home52-growth{background:#def6ef;color:#079879;padding:8px 10px;border-radius:12px;white-space:nowrap;font-size:15px;font-weight:750}
+.home52-growth.negative{background:#ffedef;color:#c63d58}
+.home52-growth small{display:block;font-size:10px;font-weight:400;color:#75839b;text-align:right;margin-top:4px}
+.home52-wealth-chart{height:66px;margin:0 3px 0}
+.home52-wealth-chart svg{width:100%;height:100%}
+.home52-mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.home52-mini{display:flex;flex-direction:column;align-items:flex-start;text-align:left;position:relative;min-width:0;padding:20px 18px;min-height:162px;color:#182942}
+.home52-icon{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:#e8f4ff;color:#117fe9;margin-bottom:12px}
+.home52-mini>span:not(.home52-icon){font-size:12px}
+.home52-mini strong{font-size:clamp(17px,2.4vw,26px);letter-spacing:-.045em;margin:7px 0;color:#0c203a;white-space:nowrap}
+.home52-mini small{font-size:11px;color:#7185a0;line-height:1.35;max-width:85%}
+.home52-mini-arrow{position:absolute;right:12px;bottom:13px;border-radius:50%;background:#f1f6fc;color:#506e90;padding:7px;box-sizing:content-box}
+.home52-goal{position:relative;overflow:hidden;display:flex;align-items:center;text-align:left;min-height:128px;padding:20px;gap:10px;color:#172b49}
+.home52-goal-content{z-index:1;display:grid;gap:9px;max-width:62%;min-width:0;flex:1}
+.home52-goal-content strong{font-size:19px;line-height:1.2}
+.home52-goal-content small{font-size:12px;line-height:1.4}
+.home52-goal-art{position:absolute;inset:0 0 0 55%;background:linear-gradient(90deg,#fff0,#fff0),url("/brand/horizon-landscape.svg") 70% 61%/auto 170% no-repeat;opacity:.95}
+.home52-goal-arrow{z-index:1;margin-left:auto;align-self:end;background:#fff;border-radius:50%;width:38px;height:38px;display:grid;place-items:center}
+.home52-new{position:fixed;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(115px + env(safe-area-inset-bottom,0px));z-index:28;display:flex;align-items:center;gap:9px;border:0;border-radius:100px;background:#067cee;color:#fff;padding:14px 22px;font-weight:700;font-size:15px;box-shadow:0 15px 30px #076ed344}
+.home52-more{margin-top:5px}
+.home52-premium .footnote:last-child{font-size:11px}
+@media(max-width:720px){
+ .home52-premium{margin:-14px -16px 0;gap:12px}
+ .home52-hero{height:310px;min-height:310px;padding:30px 20px 12px;background:linear-gradient(90deg,rgba(248,252,255,.85) 0%,rgba(248,252,255,.38) 51%,transparent 100%),url("/brand/horizon-landscape.svg") 56% 54%/auto 100% no-repeat}
+ .home52-hero h2{font-size:30px;max-width:330px;margin-bottom:24px}
+ .home52-overview{padding:0 16px;gap:12px;margin-top:-7px}
+ .home52-wealth{min-height:220px;padding:18px 20px 8px;border-radius:23px}
+ .home52-wealth-amount{font-size:clamp(29px,8vw,42px);margin:10px 0 7px}
+ .home52-wealth-title{font-size:16px}
+ .home52-wealth p{max-width:230px;font-size:12px}
+ .home52-wealth-chart{height:56px}
+ .home52-mini-grid{gap:10px}
+ .home52-mini{padding:15px 13px;min-height:164px;border-radius:21px}
+ .home52-mini strong{font-size:clamp(16px,4vw,23px)}
+ .home52-mini>span:not(.home52-icon){font-size:11px;line-height:1.35}
+ .home52-goal{min-height:117px;padding:16px 18px}
+ .home52-goal-content strong{font-size:17px}
+ .home52-more,.home52-premium>.footnote{margin:4px 16px}
+ .home52-new{bottom:calc(112px + env(safe-area-inset-bottom,0px));padding:14px 20px}
+}
+[data-theme=dark] .home52-wealth,[data-theme=dark] .home52-mini,[data-theme=dark] .home52-goal{background:#182b42;color:#eef5ff;border-color:#2b4564}
+[data-theme=dark] .home52-wealth-amount,[data-theme=dark] .home52-wealth-title,[data-theme=dark] .home52-mini strong,[data-theme=dark] .home52-goal-content strong{color:#f6f9ff}
+
+/* Home topbar is branding-led, not a secondary page title */
+@media(max-width:720px){
+ .workspace-shell:has(.page-overview) .topbar{background:linear-gradient(180deg,#f8fcff,#f8fcfff5);border:0;box-shadow:none;min-height:86px;padding:12px 20px}
+ .workspace-shell:has(.page-overview) .topbar .breadcrumb{flex:1;min-width:0}
+ .workspace-shell:has(.page-overview) .topbar .breadcrumb>span:not(.mobile52-topbar-logo),.workspace-shell:has(.page-overview) .topbar .breadcrumb>strong{display:none}
+ .workspace-shell:has(.page-overview) .mobile52-topbar-logo{display:block;width:148px;height:65px;background:none;border-radius:0;overflow:visible}
+ .workspace-shell:has(.page-overview) .mobile52-topbar-logo img{display:block;width:148px;height:65px;object-fit:contain;object-position:left center}
+ .workspace-shell:has(.page-overview) .topbar-actions{gap:5px}
+ .workspace-shell:has(.page-overview) .topbar-actions>.icon-btn{width:38px;height:38px;min-width:38px;border-radius:50%;background:#edf5ff}
+ .workspace-shell:has(.page-overview) .topbar .avatar{display:none}
+ .workspace-shell:has(.page-overview) .demo-banner{font-size:11px;padding:6px 15px;min-height:40px}
+ .workspace-shell:has(.page-overview) .demo-banner button{font-size:11px}
+}
+
+/* 5.2.1 visual system: consistent premium styling in every navigation area */
+.workspace-shell{--mh-paper:#f8fbff;--mh-stroke:#e3ecf7;--mh-depth:0 10px 32px rgba(21,54,96,.055);background:linear-gradient(180deg,#fafcff,#f4f8fe)}
+.workspace-shell main:not(.page-overview){max-width:1300px;width:100%;margin-inline:auto}
+.workspace-shell main:not(.page-overview)>.page-heading{overflow:hidden;position:relative;isolation:isolate;border:1px solid var(--mh-stroke);border-radius:26px;padding:22px 24px;background:linear-gradient(115deg,rgba(255,255,255,.96) 0%,rgba(247,252,255,.94) 100%);box-shadow:var(--mh-depth)}
+.workspace-shell main:not(.page-overview)>.page-heading:after{content:"";position:absolute;pointer-events:none;inset:auto -10px -30px auto;width:220px;height:125px;background:url("/brand/horizon-landscape.svg") center 41%/cover no-repeat;opacity:.13;z-index:-1}
+.workspace-shell main:not(.page-overview)>.page-heading h1{font-size:clamp(24px,3vw,36px);letter-spacing:-.045em}
+.workspace-shell main:not(.page-overview) .panel,.workspace-shell main:not(.page-overview) .stat,.workspace-shell main:not(.page-overview) .workspace-context,.workspace-shell main:not(.page-overview) .global-filters{border-radius:22px;border:1px solid var(--mh-stroke);box-shadow:var(--mh-depth);background:var(--panel)}
+.workspace-shell main:not(.page-overview) .panel-title{gap:14px}
+.workspace-shell main:not(.page-overview) h3{letter-spacing:-.03em}
+.workspace-shell main:not(.page-overview) .btn{border-radius:14px;min-height:44px}
+.workspace-shell main:not(.page-overview) input,.workspace-shell main:not(.page-overview) select,.workspace-shell main:not(.page-overview) textarea{border-radius:13px;min-height:44px}
+.workspace-shell main:not(.page-overview) input:focus-visible,.workspace-shell main:not(.page-overview) select:focus-visible{outline:2px solid #2588f7;outline-offset:1px}
+.workspace-shell main:not(.page-overview) .tile-icon{background:#e8f4ff;border-radius:14px}
+.workspace-shell main:not(.page-overview) .panel p,.workspace-shell main:not(.page-overview) .muted{line-height:1.55}
+.workspace-shell main:not(.page-overview) .workspace-context{margin-bottom:18px}
+.workspace-shell main:not(.page-overview) .global-filters{margin-bottom:18px}
+.home52-hero{background:linear-gradient(90deg,rgba(248,252,255,.88) 0%,rgba(248,252,255,.55) 47%,rgba(248,252,255,.06) 82%),url("/brand/horizon-landscape.svg") center 38%/cover no-repeat!important}
+.home52-goal{isolation:isolate;overflow:hidden!important;contain:paint}
+.home52-goal-content{position:relative;z-index:2;max-width:58%;overflow:hidden}
+.home52-goal-progress{overflow:hidden!important;max-width:100%;width:100%;border-radius:999px;isolation:isolate}
+.home52-goal-progress>span{display:block;max-width:100%;border-radius:inherit;overflow:hidden}
+.home52-goal-art{inset:0 0 0 60%;overflow:hidden;clip-path:inset(0);background-image:url("/brand/horizon-landscape.svg");background-position:center 36%;background-size:cover}
+.home52-goal-arrow{z-index:3}
+.home52-new{display:none!important}
+@media(max-width:720px){
+.workspace-shell main:not(.page-overview){padding-bottom:calc(155px + env(safe-area-inset-bottom,0px))}
+.workspace-shell main:not(.page-overview)>.page-heading{padding:18px;border-radius:22px}
+.workspace-shell main:not(.page-overview)>.page-heading h1{font-size:25px}
+.workspace-shell main:not(.page-overview)>.page-heading:after{width:160px;height:100px;opacity:.10}
+.workspace-shell main:not(.page-overview) .panel{padding:18px;border-radius:20px}
+.workspace-shell main:not(.page-overview) .global-filters{padding:13px}
+.workspace-shell main:not(.page-overview) .workspace-context{padding:11px}
+.home52-hero{background:linear-gradient(90deg,rgba(248,252,255,.90),rgba(248,252,255,.38) 56%,transparent 100%),url("/brand/horizon-landscape.svg") center 37%/auto 100% no-repeat!important}
+.home52-goal-content{max-width:58%}
+.home52-goal-art{inset:0 0 0 60%;background-position:58% 33%;background-size:auto 108%}
+.home52-goal-progress{height:8px;max-width:100%}
+.mobile52-quick-trigger{bottom:calc(103px + env(safe-area-inset-bottom,0px));right:max(18px,calc((100vw - 455px)/2));z-index:101;min-height:52px;border-radius:24px;padding:0 18px}
+}
+[data-theme=dark] .workspace-shell main:not(.page-overview)>.page-heading{background:var(--panel);border-color:var(--line)}
+[data-theme=dark] .workspace-shell main:not(.page-overview) .panel,[data-theme=dark] .workspace-shell main:not(.page-overview) .workspace-context{border-color:var(--line)}

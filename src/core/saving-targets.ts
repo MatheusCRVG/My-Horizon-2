@@ -5,7 +5,6 @@ import {
   fundedOccurrences,
   remainingOccurrences,
   defaultPlan,
-  occurrences,
   positive,
   projectSavings,
   requiredMonthly,

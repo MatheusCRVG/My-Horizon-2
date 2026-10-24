@@ -9,7 +9,7 @@ import {
   Info,
 } from "lucide-react";
 import { Modal } from "../components/ui";
-import { money, dateLabel, uid, today, type Entity } from "../core/model";
+import { money, dateLabel, uid, type Entity } from "../core/model";
 import { useFinance } from "../core/store";
 import { horizonCategory } from "../core/horizons";
 import { reservedValue } from "../core/contributions";

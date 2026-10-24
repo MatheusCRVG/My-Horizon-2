@@ -26,6 +26,7 @@ import {
   SettingsNavigation,
 } from "./components/WorkspaceNavigation";
 import { Intelligence, usePulseSession } from "./features/Intelligence";
+import { MobileNavigation52 } from "./components/MobileNavigation52";
 const Future = lazy(() =>
   import("./features/Future").then((m) => ({ default: m.Future })),
 );
@@ -350,11 +351,21 @@ export function App() {
             >
               <Menu size={22} />
             </button>
+            <span className="mobile52-topbar-logo" aria-hidden="true">
+              <img src={page === "overview" ? BRAND.logo : BRAND.symbol} alt="" />
+            </span>
             <span>Meu espaço</span>
             <span className="slash">/</span>
             <strong>{title}</strong>
           </div>
           <div className="topbar-actions">
+            <button
+              className="icon-btn mobile52-search-trigger"
+              aria-label="Buscar no My Horizon+"
+              onClick={() => setSearchOpen(true)}
+            >
+              <Search size={20} aria-hidden="true" />
+            </button>
             <button
               className="guide-button"
               onClick={() => setGuideOpen(true)}
@@ -595,6 +606,7 @@ export function App() {
                 navigate={navigate}
                 add={beginTransaction}
                 pulseBaseline={pulseBaseline}
+                setMonth={setMonth}
               />
             ) : page === "transactions" || page === "recurring" ? (
               <Transactions
@@ -655,7 +667,12 @@ export function App() {
           </footer>
         </main>
       </div>
-      <PrimaryNavigation page={page} navigate={navigate} mobile />
+      <MobileNavigation52
+        page={page}
+        navigate={navigate}
+        add={beginTransaction}
+        search={() => setSearchOpen(true)}
+      />
       {newTx && (
         <TransactionForm
           initialType={newTxType}

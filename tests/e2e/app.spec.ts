@@ -1,7 +1,6 @@
 import { navigateApp } from "./navigation";
 import { beginDirectHorizon, finishDirectHorizon } from "./horizon-wizard";
-import { test, expect, type Page, type BrowserContext } from "@playwright/test";
-import type { Envelope } from "../../src/core/crypto";
+import { test, expect, type Page } from "@playwright/test";
 import { addMonths, today } from "../../src/core/model";
 import { mockCloud, signInAccount, type Snapshot } from "./cloud-fixture";
 const password = "cofre-teste-seguro-123";

@@ -1,6 +1,6 @@
 [package]
 name = "my-horizon-native"
-version = "5.1.0"
+version = "5.2.0"
 description = "My Horizon+ — planejamento financeiro pessoal"
 authors = ["My Horizon+"]
 edition = "2021"

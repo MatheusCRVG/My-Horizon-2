@@ -1,0 +1,8 @@
+name = "my-horizon-price-search"
+main = "src/index.ts"
+compatibility_date = "2026-10-23"
+workers_dev = true
+
+# Do not place API credentials in this file.
+# Add secrets with: npx wrangler secret put SERPAPI_KEY
+# Explicitly allow your app's origins with: npx wrangler secret put ALLOWED_ORIGINS
