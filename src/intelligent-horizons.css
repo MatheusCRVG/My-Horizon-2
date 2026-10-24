@@ -22,3 +22,15 @@
 [data-theme=dark] .ih3-quote{background:#123e35;border-color:#2b7060;color:#d9fff1}
 [data-theme=dark] .ih3-choice-grid button.selected{background:#193c5d;color:#b9dcff}
 @media(max-width:550px){.ih3-grid{grid-template-columns:1fr}.ih3-panel{padding:15px}.ih3-choice-grid{grid-template-columns:1fr}.ih3-choice-grid button{min-height:60px}}
+
+.ih3-store-offer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}
+.ih3-store-offer>div:first-child{display:grid;gap:5px;min-width:0}
+.ih3-store-offer strong{font-size:14px;overflow-wrap:anywhere}
+.ih3-store-offer small{font-size:11px;color:var(--muted)}
+.ih3-store-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0}
+.ih3-store-actions a{display:flex;gap:5px;align-items:center;font-size:12px;color:#1680e8}
+.ih3-store-actions .btn{min-height:40px}
+.ih3-panel details{border-top:1px solid var(--line);padding-top:12px}
+.ih3-panel details>summary{font-weight:650;cursor:pointer;min-height:42px}
+.ih3-panel details .ih3-grid{margin:10px 0}
+@media(max-width:550px){.ih3-store-offer{align-items:stretch;flex-direction:column}.ih3-store-actions{align-items:stretch;flex-direction:row;justify-content:space-between}}
