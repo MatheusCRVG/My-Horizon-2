@@ -1,0 +1,13 @@
+{
+  "name": "my-horizon-price-search",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "typescript": "~5.8.3"
+  }
+}
